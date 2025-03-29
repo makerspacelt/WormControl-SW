@@ -1,0 +1,12 @@
+esp32:
+  board: esp32-c3-devkitm-1
+  variant: esp32c3
+  # framework:
+  #   type: esp-idf
+
+esphome:
+  name: ${device_name}
+
+logger:
+  level: DEBUG
+  baud_rate: 115200 

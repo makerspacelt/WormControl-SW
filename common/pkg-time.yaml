@@ -1,0 +1,4 @@
+time:
+  - platform: sntp
+    id: sntp_time
+    timezone: UTC

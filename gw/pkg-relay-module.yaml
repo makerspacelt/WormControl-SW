@@ -1,0 +1,27 @@
+packages:
+  relay_${rl_address}_00: !include {file: pkg-relay-module-output.yaml, vars: {rl_address: "${rl_address}", out: 0}}
+  relay_${rl_address}_01: !include {file: pkg-relay-module-output.yaml, vars: {rl_address: "${rl_address}", out: 1}}
+  relay_${rl_address}_02: !include {file: pkg-relay-module-output.yaml, vars: {rl_address: "${rl_address}", out: 2}}
+  relay_${rl_address}_03: !include {file: pkg-relay-module-output.yaml, vars: {rl_address: "${rl_address}", out: 3}}
+  relay_${rl_address}_04: !include {file: pkg-relay-module-output.yaml, vars: {rl_address: "${rl_address}", out: 4}}
+  relay_${rl_address}_05: !include {file: pkg-relay-module-output.yaml, vars: {rl_address: "${rl_address}", out: 5}}
+  relay_${rl_address}_06: !include {file: pkg-relay-module-output.yaml, vars: {rl_address: "${rl_address}", out: 6}}
+  relay_${rl_address}_07: !include {file: pkg-relay-module-output.yaml, vars: {rl_address: "${rl_address}", out: 7}}
+  relay_${rl_address}_08: !include {file: pkg-relay-module-output.yaml, vars: {rl_address: "${rl_address}", out: 8}}
+  relay_${rl_address}_09: !include {file: pkg-relay-module-output.yaml, vars: {rl_address: "${rl_address}", out: 9}}
+  relay_${rl_address}_10: !include {file: pkg-relay-module-output.yaml, vars: {rl_address: "${rl_address}", out: 10}}
+  relay_${rl_address}_11: !include {file: pkg-relay-module-output.yaml, vars: {rl_address: "${rl_address}", out: 11}}
+  relay_${rl_address}_12: !include {file: pkg-relay-module-output.yaml, vars: {rl_address: "${rl_address}", out: 12}}
+  relay_${rl_address}_13: !include {file: pkg-relay-module-output.yaml, vars: {rl_address: "${rl_address}", out: 13}}
+  relay_${rl_address}_14: !include {file: pkg-relay-module-output.yaml, vars: {rl_address: "${rl_address}", out: 14}}
+  relay_${rl_address}_15: !include {file: pkg-relay-module-output.yaml, vars: {rl_address: "${rl_address}", out: 15}}
+
+text_sensor:
+  - platform: template
+    id: "RL${rl_address}_lastseen"
+    state_topic: "${root_topic}/relay/${rl_address}/lastseen"
+
+  - platform: template
+    id: "RL${rl_address}_relay_states"
+    state_topic: "${root_topic}/relay/${rl_address}/relay_states"
+
