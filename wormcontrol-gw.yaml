@@ -36,14 +36,14 @@ packages:
   input06: !include {file: gw/pkg-input-module.yaml, vars: {inp_address: "0101"}}
   input07: !include {file: gw/pkg-input-module.yaml, vars: {inp_address: "0110"}}
   input08: !include {file: gw/pkg-input-module.yaml, vars: {inp_address: "0111"}}
-  # input09: !include {file: gw/pkg-input-module.yaml, vars: {inp_address: "1000"}}
-  # input10: !include {file: gw/pkg-input-module.yaml, vars: {inp_address: "1001"}}
-  # input11: !include {file: gw/pkg-input-module.yaml, vars: {inp_address: "1010"}}
-  # input12: !include {file: gw/pkg-input-module.yaml, vars: {inp_address: "1011"}}
-  # input13: !include {file: gw/pkg-input-module.yaml, vars: {inp_address: "1100"}}
-  # input14: !include {file: gw/pkg-input-module.yaml, vars: {inp_address: "1101"}}
-  # input15: !include {file: gw/pkg-input-module.yaml, vars: {inp_address: "1110"}}
-  # input16: !include {file: gw/pkg-input-module.yaml, vars: {inp_address: "1111"}} 
+  input09: !include {file: gw/pkg-input-module.yaml, vars: {inp_address: "1000"}}
+  input10: !include {file: gw/pkg-input-module.yaml, vars: {inp_address: "1001"}}
+  input11: !include {file: gw/pkg-input-module.yaml, vars: {inp_address: "1010"}}
+  input12: !include {file: gw/pkg-input-module.yaml, vars: {inp_address: "1011"}}
+  input13: !include {file: gw/pkg-input-module.yaml, vars: {inp_address: "1100"}}
+  input14: !include {file: gw/pkg-input-module.yaml, vars: {inp_address: "1101"}}
+  input15: !include {file: gw/pkg-input-module.yaml, vars: {inp_address: "1110"}}
+  input16: !include {file: gw/pkg-input-module.yaml, vars: {inp_address: "1111"}} 
 
 preferences:
   flash_write_interval: 1min

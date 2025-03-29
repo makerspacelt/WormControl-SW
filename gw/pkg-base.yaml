@@ -15,17 +15,22 @@ esphome:
   name: ${device_name}
   platformio_options:
     build_flags: "-DBOARD_HAS_PSRAM"
-    board_build.arduino.memory_type: qio_opi
+  #   board_build.arduino.memory_type: qio_opi
+
+external_components:
+  - source:
+      type: local
+      path: mycomponents  
 
 # mdns:
 #   disabled: true
 
 logger:
-  level: ERROR
+  level: DEBUG
   baud_rate: 115200
   # hardware_uart: USB_CDC
   hardware_uart: USB_SERIAL_JTAG
-  tx_buffer_size: 128
+  # tx_buffer_size: 128
   # deassert_rts_dtr: true
 
 ota:
