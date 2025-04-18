@@ -1,45 +1,45 @@
-# ESP32-S3-WROOM-1-N16R8 16 MB (Quad SPI) 8 MB (Octal SPI) https://github.com/rtek1000/YD-ESP32-23/
 esp32:
   board: esp32-s3-devkitc-1
   flash_size: 16MB
-  # variant: esp32s3
   framework:
     type: esp-idf
 
-psram:
-  mode: octal
-  speed: 80MHz
-
-
 esphome:
   name: ${device_name}
-  platformio_options:
-    build_flags: "-DBOARD_HAS_PSRAM"
-  #   board_build.arduino.memory_type: qio_opi
-
-external_components:
-  - source:
-      type: local
-      path: mycomponents  
-
-# mdns:
-#   disabled: true
+  includes:
+    - <bitset>
 
 logger:
-  level: DEBUG
+  level: INFO
   baud_rate: 115200
-  # hardware_uart: USB_CDC
   hardware_uart: USB_SERIAL_JTAG
-  # tx_buffer_size: 128
-  # deassert_rts_dtr: true
 
 ota:
   platform: esphome
   password: !secret ota_password
 
-# web_server:
-#   ota: false
-#   # local: true
-#   version: 1
-#   include_internal: true
+debug:
+  update_interval: 5s
 
+preferences:
+  flash_write_interval: 1min
+
+time:
+  - platform: sntp
+    id: sntp_time
+    timezone: UTC
+
+sensor:
+  - platform: debug
+    free:
+      id: sys_heap_free
+      state_topic: ${topic_root_stats_system}/heap_free
+    loop_time:
+      id: sys_loop_time
+      state_topic: ${topic_root_stats_system}/loop_time
+
+  - platform: uptime
+    id: sys_uptime
+    state_topic: ${topic_root_stats_system}/uptime
+    update_interval: 5s
+ 

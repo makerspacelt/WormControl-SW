@@ -1,52 +1,18 @@
 substitutions:
   device_name: wormcontrol-gw
-  CAN_ID: "0"
-  CAN_TX_PIN: "GPIO1"
-  CAN_RX_PIN: "GPIO3" 
-  root_topic: tmp/device/${device_name}
-  update_interval_debug: 5s
+  topic_root_hass: homeassistant
+  topic_root_stats_system: tmp/device/${device_name}/system
 
 packages:
-  debug:   !include common/pkg-debug.yaml
-  base:    !include gw/pkg-base.yaml 
-  time:    !include common/pkg-time.yaml
+  base: !include gw/pkg-base.yaml
 
-  relay01: !include {file: gw/pkg-relay-module.yaml, vars: {rl_address: "0000"}}
-  relay02: !include {file: gw/pkg-relay-module.yaml, vars: {rl_address: "0001"}}
-  relay03: !include {file: gw/pkg-relay-module.yaml, vars: {rl_address: "0010"}}
-  relay04: !include {file: gw/pkg-relay-module.yaml, vars: {rl_address: "0011"}}
-  relay05: !include {file: gw/pkg-relay-module.yaml, vars: {rl_address: "0100"}}
-  relay06: !include {file: gw/pkg-relay-module.yaml, vars: {rl_address: "0101"}}
-  relay07: !include {file: gw/pkg-relay-module.yaml, vars: {rl_address: "0110"}}
-  relay08: !include {file: gw/pkg-relay-module.yaml, vars: {rl_address: "0111"}}
-  relay09: !include {file: gw/pkg-relay-module.yaml, vars: {rl_address: "1000"}}
-  relay10: !include {file: gw/pkg-relay-module.yaml, vars: {rl_address: "1001"}}
-  relay11: !include {file: gw/pkg-relay-module.yaml, vars: {rl_address: "1010"}}
-  relay12: !include {file: gw/pkg-relay-module.yaml, vars: {rl_address: "1011"}}
-  relay13: !include {file: gw/pkg-relay-module.yaml, vars: {rl_address: "1100"}}
-  relay14: !include {file: gw/pkg-relay-module.yaml, vars: {rl_address: "1101"}}
-  relay15: !include {file: gw/pkg-relay-module.yaml, vars: {rl_address: "1110"}}
-  relay16: !include {file: gw/pkg-relay-module.yaml, vars: {rl_address: "1111"}}
-
-  input01: !include {file: gw/pkg-input-module.yaml, vars: {inp_address: "0000"}}
-  input02: !include {file: gw/pkg-input-module.yaml, vars: {inp_address: "0001"}}
-  input03: !include {file: gw/pkg-input-module.yaml, vars: {inp_address: "0010"}}
-  input04: !include {file: gw/pkg-input-module.yaml, vars: {inp_address: "0011"}}
-  input05: !include {file: gw/pkg-input-module.yaml, vars: {inp_address: "0100"}}
-  input06: !include {file: gw/pkg-input-module.yaml, vars: {inp_address: "0101"}}
-  input07: !include {file: gw/pkg-input-module.yaml, vars: {inp_address: "0110"}}
-  input08: !include {file: gw/pkg-input-module.yaml, vars: {inp_address: "0111"}}
-  input09: !include {file: gw/pkg-input-module.yaml, vars: {inp_address: "1000"}}
-  input10: !include {file: gw/pkg-input-module.yaml, vars: {inp_address: "1001"}}
-  input11: !include {file: gw/pkg-input-module.yaml, vars: {inp_address: "1010"}}
-  input12: !include {file: gw/pkg-input-module.yaml, vars: {inp_address: "1011"}}
-  input13: !include {file: gw/pkg-input-module.yaml, vars: {inp_address: "1100"}}
-  input14: !include {file: gw/pkg-input-module.yaml, vars: {inp_address: "1101"}}
-  input15: !include {file: gw/pkg-input-module.yaml, vars: {inp_address: "1110"}}
-  input16: !include {file: gw/pkg-input-module.yaml, vars: {inp_address: "1111"}} 
-
-preferences:
-  flash_write_interval: 1min
+globals:
+  - id: g_relay_mqtt_subs # mqtt subscription states (subscribed or not)
+    type: bool[256]
+  
+  - id: g_relay_states # relay output states - max 16 modules, 16 bits for each module
+    type: int[16]
+    restore_value: yes
 
 ethernet:
   type: W5500
@@ -57,41 +23,122 @@ ethernet:
   cs_pin: GPIO11
   interrupt_pin: GPIO10
 
-canbus:
-  - platform: esp32_can
-    id: espcan
-    tx_pin: ${CAN_TX_PIN}
-    rx_pin: ${CAN_RX_PIN}
-    can_id: 0
-    bit_rate: 125kbps
-    on_frame:
-      # hello this is my address from relay
-      - can_id:      0b00010010000
-        can_id_mask: 0b01111110000
-        then:
-        - lambda: |-
-            auto now = id(sntp_time).utcnow().strftime("%Y-%m-%d %H:%M:%SZ");
-            std::string b(x.begin(), x.end());
-            switch (can_id & 0b00000001111) {
-              // case 0b0000: id(RL0000_relay_states).publish_state(b); id(RL0000_lastseen).publish_state(now); break;
-              // case 0b0001: id(RL0001_relay_states).publish_state(b); id(RL0001_lastseen).publish_state(now); break;
-              // case 0b0010: id(RL0010_relay_states).publish_state(b); id(RL0010_lastseen).publish_state(now); break;
-              // case 0b0011: id(RL0011_relay_states).publish_state(b); id(RL0011_lastseen).publish_state(now); break;
-              // case 0b0100: id(RL0100_relay_states).publish_state(b); id(RL0100_lastseen).publish_state(now); break;
-              // case 0b0101: id(RL0101_relay_states).publish_state(b); id(RL0101_lastseen).publish_state(now); break;
-              // case 0b0110: id(RL0110_relay_states).publish_state(b); id(RL0110_lastseen).publish_state(now); break;
-              // case 0b0111: id(RL0111_relay_states).publish_state(b); id(RL0111_lastseen).publish_state(now); break;
-              // case 0b1000: id(RL1000_relay_states).publish_state(b); id(RL1000_lastseen).publish_state(now); break;
-              // case 0b1001: id(RL1001_relay_states).publish_state(b); id(RL1001_lastseen).publish_state(now); break;
-              // case 0b1010: id(RL1010_relay_states).publish_state(b); id(RL1010_lastseen).publish_state(now); break;
-              // case 0b1011: id(RL1011_relay_states).publish_state(b); id(RL1011_lastseen).publish_state(now); break;
-              // case 0b1100: id(RL1100_relay_states).publish_state(b); id(RL1100_lastseen).publish_state(now); break;
-              // case 0b1101: id(RL1101_relay_states).publish_state(b); id(RL1101_lastseen).publish_state(now); break;
-              // case 0b1110: id(RL1110_relay_states).publish_state(b); id(RL1110_lastseen).publish_state(now); break;
-              // case 0b1111: id(RL1111_relay_states).publish_state(b); id(RL1111_lastseen).publish_state(now); break;
-            }
-
 mqtt:
   id: mq
   broker: mqtt.lan
-  topic_prefix: ${root_topic}/system
+  topic_prefix: null
+
+script:
+  - id: s_canbus_set_relays
+    parameters:
+      relay_addr: int
+      relay_states: int
+    then:
+      - lambda: |-
+          // convert relay_states int to canbus message data
+          int relay_can_addr = 0b10000000000 | relay_addr;
+          std::vector<uint8_t> data(2);
+          data[0] = relay_states & 0xff;
+          data[1] = (relay_states >> 8) & 0xff;
+          id(espcan).send_data(relay_can_addr, false, data);
+
+  - id: s_mqtt_sub_relay_set
+    parameters:
+      topic: string
+      topic_state: string
+      payload: string
+      relay_addr: int
+      output_no: int
+    then:
+      - lambda: |-
+          // payload from mqtt is "0" or "OFF" or "1" or "ON"
+          // relay_states is 16 bits, 1 bit per relay
+          // update the g_relay_states global with the newest relay state
+          int relay_states = id(g_relay_states)[relay_addr];
+          int relay_states0 = relay_states;
+          bool is_on = payload == "1" || payload == "ON";
+          if (is_on) {
+            relay_states |= (1 << output_no);
+          } else {
+            relay_states &= ~(1 << output_no);
+          }
+          if (relay_states0 != relay_states) {
+            std::string payload = is_on ? "ON" : "OFF";
+            id(mq).publish(topic_state, payload, 0, false);
+          }
+          id(g_relay_states)[relay_addr] = relay_states;
+          ESP_LOGI("s_mqtt_sub_relay_set", "MQTT topic=%s payload=%s -> canbus relay=%s data=%s",
+            topic.c_str(),
+            payload.c_str(),
+            std::bitset<4>(relay_addr).to_string().c_str(),
+            std::bitset<16>(relay_states).to_string().c_str()
+          );
+          id(s_canbus_set_relays)->execute(relay_addr, relay_states);
+
+canbus:
+  - platform: esp32_can
+    id: espcan
+    tx_pin: GPIO1
+    rx_pin: GPIO2
+    can_id: 0
+    bit_rate: 125kbps
+    on_frame:
+      # Relay module address & relay states message:
+      - can_id:      0b00010010000
+        can_id_mask: 0b01111110000
+        then:
+          - lambda: |-
+              // get the relay's address from can id
+              int relay_addr = can_id & 0b00000001111;
+
+              if (x.size() != 2) {
+                ESP_LOGW("lambda", "Received an invalid data message from relay module (size %d)", x.size());
+              } else {
+                int relay_states = id(g_relay_states)[relay_addr];
+                if (x[0] != (relay_states & 0xff) || x[1] != ((relay_states >> 8) & 0xff)) {
+                  // saved output states for this relay does not match current relay state, let's update them via can
+                  id(s_canbus_set_relays)->execute(relay_addr, relay_states);
+                }
+                ESP_LOGI("can-relay", "got msg from relay %s cur_state=%s rl_state=%s%s", // TODO cleanup dev log
+                  std::bitset<4>(relay_addr).to_string().c_str(),
+                  std::bitset<16>(relay_states).to_string().c_str(),
+                  std::bitset<8>(x[1]).to_string().c_str(),
+                  std::bitset<8>(x[0]).to_string().c_str()
+                );
+              }
+
+              for (int i = 0; i < 16; i++) {
+                std::string name = str_sprintf("relay%s_%02d", std::bitset<4>(relay_addr).to_string().c_str(), i);
+                std::string topic = str_sprintf("${topic_root_hass}/switch/%s", name.c_str());
+                std::string topic_config = str_sprintf("%s/config", topic.c_str());
+                std::string topic_set = str_sprintf("%s/set", topic.c_str());
+                std::string topic_state = str_sprintf("%s/state", topic.c_str());
+
+                // publish all relay outputs as switches to mqtt so homeassistant picks them up
+                id(mq).publish_json(topic_config, [=](JsonObject root) {
+                  root["name"] = name;
+                  // TODO figure out which properties are required by homeassistant
+                  // root["device_class"] = "switch";
+                  root["command_topic"] = topic_set;
+                  root["state_topic"] = topic_state;
+                  // root["unique_id"] = "";
+                  //root["device"] = [=](JsonObject device) {
+                  //  device["identifiers"] = "";
+                  //  device["name"] = "";
+                  //};
+                }, 0, false);
+
+                // Key for subscription tracking
+                int sub_key = (relay_addr << 4) | i;
+
+                if (!id(g_relay_mqtt_subs)[sub_key]) {
+                  // Not subscribed yet - setup an mqtt subscription for each relay's mqtt topic and send changes via canbus.
+                  // (ESPHome will keep automatically retrying the subscription, so we want to do it only once)
+                  id(mq).subscribe(topic_set, [=](const std::string &topic, const std::string &payload) {
+                    id(s_mqtt_sub_relay_set)->execute(topic, topic_state, payload, relay_addr, i);
+                  });
+                  id(g_relay_mqtt_subs)[sub_key] = true;
+                }
+              } // end for
+
+# TODO HASS support: will probably need to change the retain flag to true in mqtt.publish()

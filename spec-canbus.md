@@ -33,23 +33,26 @@ prio|devtyp|msgtyp|addr|data
    1|   000|   000|xxxx|(16 bits, one bit for each relay)
 ```
 
-Send on change, on boot and repeat every 5s.
+Send:
+* on boot
+* immediately on change
+* whenever the state reported by the relay module does not match gateway's state
 
-## Hello this is my address message: Any Module -> Gateway
+## Relay module address & state message: Relay module -> Gateway
 
 On boot:
 ```
 prio|devtyp|msgtyp|addr|data
-   1|   xxx|   001|xxxx|
+   1|   xxx|   001|xxxx|(16 bits, one bit for each relay)
 ``` 
 
-Repeated every 10s:
+Repeated every 10s and 1s after any relay state change:
 ```
 prio|devtyp|msgtyp|addr|data
-   0|   xxx|   001|xxxx|
+   0|   xxx|   001|xxxx|(16 bits, one bit for each relay)
 ```
 
-## Input event message: Input Module -> Gateway
+## Input event message: Input module -> Gateway
 
 ```
 prio|devtyp|msgtyp|addr|data
@@ -57,6 +60,8 @@ prio|devtyp|msgtyp|addr|data
                         ^^^^   ^^^^  ^
                         inp.id event state
 ``` 
+
+Send on boot, on any input change and repeat every 10s.
 
 ## Monitoring message: Any Module -> Gateway
 

@@ -6,7 +6,9 @@ esp32:
 
 esphome:
   name: ${device_name}
+  includes:
+    - <bitset>
 
 logger:
-  level: DEBUG
+  level: INFO
   baud_rate: 115200 
