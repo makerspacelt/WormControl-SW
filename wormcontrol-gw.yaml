@@ -17,11 +17,11 @@ globals:
 ethernet:
   type: W5500
   # clock_speed: 20Mhz # default is 80/3=26.6
-  clk_pin: GPIO12
-  mosi_pin: GPIO13
-  miso_pin: GPIO9
-  cs_pin: GPIO11
-  interrupt_pin: GPIO10
+  clk_pin: GPIO10
+  mosi_pin: GPIO7
+  miso_pin: GPIO6
+  cs_pin: GPIO20
+  interrupt_pin: GPIO21
 
 mqtt:
   id: mq
@@ -79,7 +79,7 @@ canbus:
   - platform: esp32_can
     id: espcan
     tx_pin: GPIO1
-    rx_pin: GPIO2
+    rx_pin: GPIO3
     can_id: 0
     bit_rate: 125kbps
     on_frame:

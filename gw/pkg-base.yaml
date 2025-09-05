@@ -1,6 +1,6 @@
 esp32:
-  board: esp32-s3-devkitc-1
-  flash_size: 16MB
+  board: esp32-c3-devkitm-1
+  variant: esp32c3
   framework:
     type: esp-idf
 
@@ -12,7 +12,6 @@ esphome:
 logger:
   level: INFO
   baud_rate: 115200
-  hardware_uart: USB_SERIAL_JTAG
 
 ota:
   platform: esphome
