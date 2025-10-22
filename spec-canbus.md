@@ -40,13 +40,13 @@ Send:
 
 ## Relay module address & state message: Relay module -> Gateway
 
-On boot:
+On boot with 1s delay:
 ```
 prio|devtyp|msgtyp|addr|data
    1|   xxx|   001|xxxx|(16 bits, one bit for each relay)
 ``` 
 
-Repeated every 10s and 1s after any relay state change:
+Repeated every 10s and also sent immediatelly after relay address change:
 ```
 prio|devtyp|msgtyp|addr|data
    0|   xxx|   001|xxxx|(16 bits, one bit for each relay)
