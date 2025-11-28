@@ -2,6 +2,8 @@ substitutions:
   device_name: wormcontrol-gw
   topic_root_hass: homeassistant
   topic_root_stats_system: tmp/device/${device_name}/system
+  # build with esphome -s topic_relay_prefix test -s device_name test_gw run wormcontrol-gw.yaml
+  topic_relay_prefix:
 
 packages:
   base: !include gw/pkg-base.yaml
@@ -15,13 +17,12 @@ globals:
     restore_value: yes
 
 ethernet:
-  type: W5500
-  # clock_speed: 20Mhz # default is 80/3=26.6
-  clk_pin: GPIO10
-  mosi_pin: GPIO7
-  miso_pin: GPIO6
-  cs_pin: GPIO20
-  interrupt_pin: GPIO21
+  type: w5500
+  clk_pin: GPIO04
+  mosi_pin: GPIO06
+  miso_pin: GPIO05
+  cs_pin: GPIO03
+  interrupt_pin: GPIO20
 
 mqtt:
   id: mq
@@ -79,7 +80,7 @@ canbus:
   - platform: esp32_can
     id: espcan
     tx_pin: GPIO1
-    rx_pin: GPIO3
+    rx_pin: GPIO0
     can_id: 0
     bit_rate: 125kbps
     on_frame:
@@ -108,7 +109,7 @@ canbus:
               }
 
               for (int i = 0; i < 16; i++) {
-                std::string name = str_sprintf("relay%s_%02d", std::bitset<4>(relay_addr).to_string().c_str(), i);
+                std::string name = str_sprintf("${topic_relay_prefix}relay%s_%02d", std::bitset<4>(relay_addr).to_string().c_str(), i);
                 std::string topic = str_sprintf("${topic_root_hass}/switch/%s", name.c_str());
                 std::string topic_config = str_sprintf("%s/config", topic.c_str());
                 std::string topic_set = str_sprintf("%s/set", topic.c_str());
