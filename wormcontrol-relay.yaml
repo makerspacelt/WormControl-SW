@@ -61,6 +61,28 @@ script:
           uint32_t addr = 0b00010010000 | id(g_can_addr);
           id(espcan).send_data(addr, false, data);
 
+  - id: s_send_sensor_state
+    parameters:
+      type: int
+      index: int
+      value: float
+    then:
+      - lambda: |-
+          if (id(g_can_addr) < 0) {
+            ESP_LOGI("s_send_sensor_state", "g_can_addr not ready yet");
+            return;
+          }
+          uint32_t raw = *reinterpret_cast<uint32_t*>(&value);                  
+          uint32_t header = ((type & 0x0F) << 4) | (index & 0x0F);
+          //ESP_LOGI("s_states", "header bits = %s", std::bitset<12>(header).to_string().c_str());
+          uint64_t payload = (static_cast<uint64_t>(header & 0xFFF) << 32) | raw;      
+          std::vector<unsigned char> data(6);
+          for (int i = 0; i < 6; i++) {
+            data[i] = (payload >> (i * 8)) & 0xFF;
+          }
+          uint32_t addr = 0b10010110000 | id(g_can_addr);  // 0b1 - lower priority ; 001 - dev type; 011 - monitoring
+          id(espcan).send_data(addr, false, data);        
+
 switch:
   # relays through expander
   - { platform: gpio, id: "RL00", pin: { sn74hc595: rl_hub, number: 0 } }
@@ -154,5 +176,58 @@ interval:
       - lambda: |-
           id(s_read_my_addr).execute();
 
-# TODO GPIO0 ADC voltage
+sensor:
+  - platform: tmp102 # UI panel temp. sensor
+    id: temp_1
+    address: 0x48
+    update_interval: 3s
+    force_update: True
+    on_value:
+      then:
+        - script.execute:
+            id: s_send_sensor_state
+            type: 1 # 0b001 Temperature
+            index: 1
+            value: !lambda "return id(temp_1).state;"  
+  - platform: tmp102 # Relay PCB temp. sensor
+    id: temp_2
+    address: 0x49
+    update_interval: 3s
+    force_update: True
+    on_value:
+      then:
+        - script.execute:
+            id: s_send_sensor_state
+            type: 1 # 0b001 Temperature
+            index: 2
+            value: !lambda "return id(temp_2).state;"  
+  - platform: tmp102 # Middle PCB temp. sensor
+    id: temp_3
+    address: 0x4A
+    update_interval: 3s 
+    force_update: True
+    on_value:
+      then:
+        - script.execute:
+            id: s_send_sensor_state
+            type: 1 # 0b001 Temperature
+            index: 3
+            value: !lambda "return id(temp_3).state;"  
+  - platform: adc
+    pin: GPIO00
+    id: adc_voltage
+    update_interval: 3s
+    force_update: True
+    filters:
+      - calibrate_linear:
+        - 0.750 -> 24.686
+        - 0.000 -> 0
+    on_value:
+      then:
+        - script.execute:
+            id: s_send_sensor_state
+            type: 3 # 0b011 Voltage
+            index: 0
+            value: !lambda "return id(adc_voltage).state;"  
+
 # TODO add slow periodic sender of monitoring messages, including memory state, loop time, adc voltage

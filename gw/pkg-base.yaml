@@ -11,7 +11,7 @@ esphome:
 
 logger:
   level: INFO
-  baud_rate: 115200
+  baud_rate: 921600
 
 ota:
   platform: esphome

@@ -1,12 +1,10 @@
 substitutions:
-  device_name: wormcontrol-gw
+  device_name: worm-gw-tester
   topic_root_hass: homeassistant
   topic_root_stats_system: tmp/device/${device_name}/system
-  # build with esphome -s topic_relay_prefix test -s device_name test_gw run wormcontrol-gw.yaml
-  topic_relay_prefix:
 
 packages:
-  base: !include gw/pkg-base.yaml
+  base: !include inc/pkg-base.yaml
 
 globals:
   - id: g_relay_mqtt_subs # mqtt subscription states (subscribed or not)
@@ -16,6 +14,66 @@ globals:
     type: int[16]
     restore_value: yes
 
+esphome:
+  on_boot:
+    - priority: -500
+      then:
+        - delay: 5s 
+        - lambda: |-
+            id(s_canbus_set_relays)->execute(0b1001, 0b0000000000000001);
+        - delay: 0.5s
+        - lambda: |-
+            id(s_canbus_set_relays)->execute(0b1001, 0b0000000000000011);
+        - delay: 0.5s
+        - lambda: |-
+            id(s_canbus_set_relays)->execute(0b1001, 0b0000000000000111);
+        - delay: 0.5s
+        - lambda: |-
+            id(s_canbus_set_relays)->execute(0b1001, 0b0000000000001111);
+        - delay: 0.5s
+        - lambda: |-
+            id(s_canbus_set_relays)->execute(0b1001, 0b0000000000011111);
+        - delay: 0.5s
+        - lambda: |-
+            id(s_canbus_set_relays)->execute(0b1001, 0b0000000000111111);
+        - delay: 0.5s
+        - lambda: |-
+            id(s_canbus_set_relays)->execute(0b1001, 0b0000000001111111);
+        - delay: 0.5s
+        - lambda: |-
+            id(s_canbus_set_relays)->execute(0b1001, 0b0000000011111111);
+        - delay: 0.5s
+        - lambda: |-
+            id(s_canbus_set_relays)->execute(0b1001, 0b0000000111111111);
+        - delay: 0.5s
+        - lambda: |-
+            id(s_canbus_set_relays)->execute(0b1001, 0b0000001111111111);
+        - delay: 0.5s
+        - lambda: |-
+            id(s_canbus_set_relays)->execute(0b1001, 0b0000011111111111);
+        - delay: 0.5s
+        - lambda: |-
+            id(s_canbus_set_relays)->execute(0b1001, 0b0000111111111111);
+        - delay: 0.5s
+        - lambda: |-
+            id(s_canbus_set_relays)->execute(0b1001, 0b0001111111111111);
+        - delay: 0.5s
+        - lambda: |-
+            id(s_canbus_set_relays)->execute(0b1001, 0b0011111111111111);
+        - delay: 0.5s
+        - lambda: |-
+            id(s_canbus_set_relays)->execute(0b1001, 0b0111111111111111);
+        - delay: 0.5s
+        - lambda: |-
+            id(s_canbus_set_relays)->execute(0b1001, 0b1111111111111111);
+        - delay: 0.5s
+        - lambda: |-
+            id(s_canbus_set_relays)->execute(0b1001, 0b0000000000000000);
+        - delay: 0.5s
+        - lambda: |-
+            id(s_canbus_set_relays)->execute(0b1001, 0b1111111111111111);
+        - delay: 0.5s
+
 ethernet:
   type: w5500
   clk_pin: GPIO04
@@ -23,6 +81,9 @@ ethernet:
   miso_pin: GPIO05
   cs_pin: GPIO03
   interrupt_pin: GPIO20
+  reset_pin: GPIO21
+  #clock_speed: 16MHz
+  # gnd and 3.3V
 
 mqtt:
   id: mq
@@ -42,7 +103,7 @@ script:
           data[0] = relay_states & 0xff;
           data[1] = (relay_states >> 8) & 0xff;
           id(espcan).send_data(relay_can_addr, false, data);
-
+          
   - id: s_mqtt_sub_relay_set
     parameters:
       topic: string
@@ -52,6 +113,7 @@ script:
       output_no: int
     then:
       - lambda: |-
+          /*
           // payload from mqtt is "0" or "OFF" or "1" or "ON"
           // relay_states is 16 bits, 1 bit per relay
           // update the g_relay_states global with the newest relay state
@@ -75,6 +137,7 @@ script:
             std::bitset<16>(relay_states).to_string().c_str()
           );
           id(s_canbus_set_relays)->execute(relay_addr, relay_states);
+          */
 
 canbus:
   - platform: esp32_can
@@ -89,6 +152,8 @@ canbus:
         can_id_mask: 0b01111110000
         then:
           - lambda: |-
+              return; 
+
               // get the relay's address from can id
               int relay_addr = can_id & 0b00000001111;
 
@@ -107,14 +172,14 @@ canbus:
                   std::bitset<8>(x[0]).to_string().c_str()
                 );
               }
-
+              
               for (int i = 0; i < 16; i++) {
-                std::string name = str_sprintf("${topic_relay_prefix}relay%s_%02d", std::bitset<4>(relay_addr).to_string().c_str(), i);
+                std::string name = str_sprintf("relay%s_%02d", std::bitset<4>(relay_addr).to_string().c_str(), i);
                 std::string topic = str_sprintf("${topic_root_hass}/switch/%s", name.c_str());
                 std::string topic_config = str_sprintf("%s/config", topic.c_str());
                 std::string topic_set = str_sprintf("%s/set", topic.c_str());
                 std::string topic_state = str_sprintf("%s/state", topic.c_str());
-
+              
                 // publish all relay outputs as switches to mqtt so homeassistant picks them up
                 id(mq).publish_json(topic_config, [=](JsonObject root) {
                   root["name"] = name;
@@ -140,8 +205,8 @@ canbus:
                   });
                   id(g_relay_mqtt_subs)[sub_key] = true;
                 }
+                
               } // end for
-
       - can_id:      0b10010110000
         can_id_mask: 0b11111110000
         then:
@@ -163,4 +228,6 @@ canbus:
               
               //ESP_LOGD("Monitoring", "Relay addr: %u, Type: %s, Value: %.2f, Index: %u", relay_addr, std::bitset<12>(type).to_string().c_str(), value, sensor_idx);
 
+
+              
 # TODO HASS support: will probably need to change the retain flag to true in mqtt.publish()
