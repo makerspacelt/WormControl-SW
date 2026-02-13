@@ -2,8 +2,9 @@ substitutions:
   device_name: wormcontrol-gw
   topic_root_hass: homeassistant
   topic_root_stats_system: tmp/device/${device_name}/system
+  topic_logs: tmp/device/${device_name}/logs
   # build with esphome -s topic_relay_prefix test -s device_name test_gw run wormcontrol-gw.yaml
-  topic_relay_prefix:
+  topic_relay_prefix: ""
 
 packages:
   base: !include gw/pkg-base.yaml
@@ -28,6 +29,7 @@ mqtt:
   id: mq
   broker: mqtt.lan
   topic_prefix: null
+  log_topic: ${topic_logs}
 
 script:
   - id: s_canbus_set_relays
