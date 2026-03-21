@@ -1,0 +1,72 @@
+esp32:
+  board: esp32-c3-devkitm-1
+  variant: esp32c3
+  framework:
+    type: esp-idf
+
+esphome:
+  name: "${device_name}"
+  name_add_mac_suffix: true
+
+external_components:
+  - source:
+      type: local
+      path: mycomponents
+    components:
+      - worm_input
+      - worm_relay
+
+logger:
+  level: INFO
+  logs:
+    canbus: INFO
+  baud_rate: 921600
+ 
+ethernet:
+  type: w5500
+  clk_pin: GPIO04
+  mosi_pin: GPIO06
+  miso_pin: GPIO05
+  cs_pin: GPIO03
+  interrupt_pin: GPIO20
+
+# CANbus configuration
+canbus:
+  - platform: esp32_can
+    id: espcan
+    tx_pin: GPIO1
+    rx_pin: GPIO0
+    can_id: 0
+    bit_rate: 125kbps
+ 
+# Single worm_relay component manages all relay modules (addresses 0-15)
+# Each module has 15 relays (gpio pin numbers 1-15)
+# `addr` in pin definition specifies the module address (binary string or integer 0-15)
+worm_relay:
+  id: wrl
+  canbus: espcan
+
+# Single worm_input component manages all input modules (addresses 0-15)
+# Each module has 32 inputs (gpio pin numbers 1-32)
+# `addr` in gpio pin definition specifies the module address (binary string or integer 0-15)
+worm_input:
+  id: win
+  canbus: espcan
+
+debug:
+  update_interval: 30s
+
+sensor:
+  - platform: debug
+    free:
+      name: Heap Free
+    loop_time:
+      name: Loop Time
+  - platform: uptime
+    name: Uptime
+    update_interval: 30s
+
+text_sensor:
+  - platform: debug
+    reset_reason:
+      name: Reset Reason

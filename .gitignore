@@ -1,5 +1,3 @@
 .esphome/
 __pycache__/
-gw/secrets.yaml
 secrets.yaml
-venv/

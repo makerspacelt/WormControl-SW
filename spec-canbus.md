@@ -16,9 +16,8 @@ dev types (3 bits):
 
 msg types (3 bits):
 * 000 set relay (gw -> relay module)
-* 001 hello (relay/input module -> gw)
-* 010 input event (input module -> gw)
-* 011 monitoring (relay/input module -> gw)
+* 001 hello & state (relay/input module -> gw)
+* 010 monitoring (relay/input module -> gw)
 
 # CAN data
 
@@ -30,7 +29,7 @@ We have 0-64 bits for data.
 
 ```
 prio|devtyp|msgtyp|addr|data
-   1|   000|   000|xxxx|(16 bits, one bit for each relay)
+   0|   000|   000|xxxx|(16 bits, one bit for each relay)
 ```
 
 Send:
@@ -40,45 +39,47 @@ Send:
 
 ## Relay module address & state message: Relay module -> Gateway
 
-On boot with 1s delay:
+This message is sent:
+1. On boot with 1s delay.
+2. Repeated every 10s.
+3. Sent immediatelly after relay module address change.
+
 ```
 prio|devtyp|msgtyp|addr|data
-   1|   xxx|   001|xxxx|(16 bits, one bit for each relay)
+   0|   010|   001|xxxx|(16 bits, one bit for each relay)
 ``` 
 
-Repeated every 10s and also sent immediatelly after relay address change:
+## Input module address & state message: Input module -> Gateway
+
+This message is sent:
+1. On boot with 1s delay.
+2. Repeated every 10s.
+3. Immediatelly after input module address change.
+4. Immediatelly after input state change.
+
 ```
 prio|devtyp|msgtyp|addr|data
-   0|   xxx|   001|xxxx|(16 bits, one bit for each relay)
-```
-
-## Input event message: Input module -> Gateway
-
-```
-prio|devtyp|msgtyp|addr|data
-   1|   010|   010|xxxx|0000   0000  0
-                        ^^^^   ^^^^  ^
-                        inp.id event state
+   0|   010|   001|xxxx|(32 bits, one bit for each input)
 ``` 
-
-Send on boot, on any input change and repeat every 10s.
 
 ## Monitoring message: Any Module -> Gateway
 
-TODO decide when monitoring messages are sent
-
 ```
 prio|devtyp|msgtyp|addr|data
-   0|   xxx|   011|xxxx|0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 
+   1|   xxx|   010|xxxx|0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 
                         ^^^^^^^^^ ^^^^ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                        type      idx  value (float32)
+                        type     idx  value (float32)
 ```
 
+* `type` is the message type (see below)
+* `idx` is the sensor index (usually 0000)
+* `value` is the float32 value
+
 Monitoring message types (8 bits):
-* 0000 0000 - error
-* 0000 0001 - temperature
-* 0000 0010 - uptime
-* 0000 0011 - voltage
+* 0000 0000
+* 0000 0001 - temperature - sent every 3s
+* 0000 0010
+* 0000 0011 - voltage - sent every 3s
 * 0000 0100
 * 0000 0101
 * 0000 0110
@@ -91,4 +92,3 @@ Monitoring message types (8 bits):
 * 0000 1101
 * 0000 1110
 * 0000 1111
-* <...>

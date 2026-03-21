@@ -1,9 +1,17 @@
-substitutions:
-  device_name: wormcontrol-relay
-  update_interval_debug: 5s
+esp32:
+  board: esp32-c3-devkitm-1
+  variant: esp32c3
+  framework:
+    type: esp-idf
 
-packages:
-  base: !include mod-relay/pkg-base.yaml
+esphome:
+  name: wormcontrol-relay
+  includes:
+    - <bitset>
+
+logger:
+  level: INFO
+  baud_rate: 921600 
 
 i2c:
   sda: GPIO2
@@ -41,8 +49,7 @@ script:
             
             ESP_LOGI("s_read_my_addr", "relay address change: %s -> %s",
               old_can_addr < 0 ? "n/a" : std::bitset<4>(old_can_addr).to_string().c_str(),
-              std::bitset<4>(new_can_addr).to_string().c_str(),
-              old_can_addr
+              std::bitset<4>(new_can_addr).to_string().c_str()
             );
             id(s_send_relay_states).execute(); // force publish of new address on change
           }
@@ -57,7 +64,7 @@ script:
           std::vector<uint8_t> data(2);
           data[0] = id(g_relay_states)[0];
           data[1] = id(g_relay_states)[1];
-          // TODO maybe change the first bit to 1 when sending this msg on boot to increase priority (see spec-canbus.md)
+          // dev type is 001 for relay module
           uint32_t addr = 0b00010010000 | id(g_can_addr);
           id(espcan).send_data(addr, false, data);
 
@@ -80,7 +87,7 @@ script:
           for (int i = 0; i < 6; i++) {
             data[i] = (payload >> (i * 8)) & 0xFF;
           }
-          uint32_t addr = 0b10010110000 | id(g_can_addr);  // 0b1 - lower priority ; 001 - dev type; 011 - monitoring
+          uint32_t addr = 0b10010100000 | id(g_can_addr);  // 0b1 - lower priority ; 001 - dev type; 010 - monitoring
           id(espcan).send_data(addr, false, data);        
 
 switch:
@@ -180,7 +187,7 @@ sensor:
   - platform: tmp102 # UI panel temp. sensor
     id: temp_1
     address: 0x48
-    update_interval: 3s
+    update_interval: 4000ms
     force_update: True
     on_value:
       then:
@@ -192,7 +199,7 @@ sensor:
   - platform: tmp102 # Relay PCB temp. sensor
     id: temp_2
     address: 0x49
-    update_interval: 3s
+    update_interval: 4100ms
     force_update: True
     on_value:
       then:
@@ -204,7 +211,7 @@ sensor:
   - platform: tmp102 # Middle PCB temp. sensor
     id: temp_3
     address: 0x4A
-    update_interval: 3s 
+    update_interval: 4200ms
     force_update: True
     on_value:
       then:
@@ -216,7 +223,7 @@ sensor:
   - platform: adc
     pin: GPIO00
     id: adc_voltage
-    update_interval: 3s
+    update_interval: 4300ms
     force_update: True
     filters:
       - calibrate_linear:
@@ -229,5 +236,3 @@ sensor:
             type: 3 # 0b011 Voltage
             index: 0
             value: !lambda "return id(adc_voltage).state;"  
-
-# TODO add slow periodic sender of monitoring messages, including memory state, loop time, adc voltage
