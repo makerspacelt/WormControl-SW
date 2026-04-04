@@ -1,16 +1,18 @@
 substitutions:
-  device_name: "worm-control-i1r1-ha"
-  friendly_name: "Worm Control HA INP1 RL1"
+  device_name: "worm-gw-test-jig"
+  friendly_name: "Worm Control Test Jig"
+  mqtt_broker: "mqtt.lan"
 
 packages:
-  gw: !include common/gw.yaml
+  gw: !include ../common/gw.yaml
 
-api:
+mqtt:
+  broker: "$mqtt_broker"
 
 time:
-  - platform: homeassistant
-    id: ha_time
-    timezone: 'Etc/UTC'
+  - platform: sntp
+    id: sntp_time
+    timezone: "Etc/UTC"
 
 # Switches for relay modules
 switch:
@@ -29,6 +31,22 @@ switch:
   - { platform: gpio, id: M00_R13, name: M00_R13, pin: { worm_relay: wrl, addr: "0000", number: 13 } }
   - { platform: gpio, id: M00_R14, name: M00_R14, pin: { worm_relay: wrl, addr: "0000", number: 14 } }
   - { platform: gpio, id: M00_R15, name: M00_R15, pin: { worm_relay: wrl, addr: "0000", number: 15 } }
+
+  - { platform: gpio, id: M01_R01, name: M01_R01, pin: { worm_relay: wrl, addr: "0001", number: 1 } }
+  - { platform: gpio, id: M01_R02, name: M01_R02, pin: { worm_relay: wrl, addr: "0001", number: 2 } }
+  - { platform: gpio, id: M01_R03, name: M01_R03, pin: { worm_relay: wrl, addr: "0001", number: 3 } }
+  - { platform: gpio, id: M01_R04, name: M01_R04, pin: { worm_relay: wrl, addr: "0001", number: 4 } }
+  - { platform: gpio, id: M01_R05, name: M01_R05, pin: { worm_relay: wrl, addr: "0001", number: 5 } }
+  - { platform: gpio, id: M01_R06, name: M01_R06, pin: { worm_relay: wrl, addr: "0001", number: 6 } }
+  - { platform: gpio, id: M01_R07, name: M01_R07, pin: { worm_relay: wrl, addr: "0001", number: 7 } }
+  - { platform: gpio, id: M01_R08, name: M01_R08, pin: { worm_relay: wrl, addr: "0001", number: 8 } }
+  - { platform: gpio, id: M01_R09, name: M01_R09, pin: { worm_relay: wrl, addr: "0001", number: 9 } }
+  - { platform: gpio, id: M01_R10, name: M01_R10, pin: { worm_relay: wrl, addr: "0001", number: 10 } }
+  - { platform: gpio, id: M01_R11, name: M01_R11, pin: { worm_relay: wrl, addr: "0001", number: 11 } }
+  - { platform: gpio, id: M01_R12, name: M01_R12, pin: { worm_relay: wrl, addr: "0001", number: 12 } }
+  - { platform: gpio, id: M01_R13, name: M01_R13, pin: { worm_relay: wrl, addr: "0001", number: 13 } }
+  - { platform: gpio, id: M01_R14, name: M01_R14, pin: { worm_relay: wrl, addr: "0001", number: 14 } }
+  - { platform: gpio, id: M01_R15, name: M01_R15, pin: { worm_relay: wrl, addr: "0001", number: 15 } }
 
 # Binary sensors for input modules
 binary_sensor:
@@ -64,4 +82,3 @@ binary_sensor:
   - { platform: gpio, id: M00_IN30, name: M00_IN30, pin: { worm_input: win, addr: "0000", number: 30 } }
   - { platform: gpio, id: M00_IN31, name: M00_IN31, pin: { worm_input: win, addr: "0000", number: 31 } }
   - { platform: gpio, id: M00_IN32, name: M00_IN32, pin: { worm_input: win, addr: "0000", number: 32 } }
-

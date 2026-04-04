@@ -27,7 +27,6 @@ class WormInputComponent : public Component {
   WormInputComponent() = default;
 
   void setup() override;
-  void loop() override;
   float get_setup_priority() const override;
   void dump_config() override;
 
@@ -56,7 +55,6 @@ class WormInputGPIOPin : public GPIOPin, public Parented<WormInputComponent> {
   void digital_write(bool value) override;
   size_t dump_summary(char *buffer, size_t len) const override;
 
-  void set_pin(uint8_t pin) { pin_ = pin; }        // Internal pin (addr*32+input) for uniqueness
   void set_addr(uint8_t addr) { addr_ = addr; }    // Module address
   void set_input_pin(uint8_t input_pin) { input_pin_ = input_pin; }  // Actual input number (0-31)
   void set_inverted(bool inverted) { inverted_ = inverted; }
@@ -65,7 +63,6 @@ class WormInputGPIOPin : public GPIOPin, public Parented<WormInputComponent> {
   gpio::Flags get_flags() const override { return gpio::Flags::FLAG_INPUT; }
 
  protected:
-  uint8_t pin_{0};         // Internal pin number (for ESPHome uniqueness)
   uint8_t addr_{0};        // Module address (0-15)
   uint8_t input_pin_{0};   // Input number on module (0-31 internally, 1-32 in YAML)
   bool inverted_{false};

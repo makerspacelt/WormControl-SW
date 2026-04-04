@@ -7,10 +7,6 @@ namespace worm_input {
 static const char *const TAG = "worm_input";
 
 void WormInputComponent::setup() {
-  ESP_LOGCONFIG(TAG, "WormInputComponent:");
-  ESP_LOGCONFIG(TAG, "  Managing up to 16 input modules (addr 0-15)");
-  ESP_LOGCONFIG(TAG, "  Each module has 32 inputs (pins 1-32)");
-
   // Register CANbus callback for receiving state from input modules
   if (this->canbus_ != nullptr) {
     this->canbus_->add_callback([this](uint32_t can_id, bool extended, bool rtr,
@@ -20,20 +16,13 @@ void WormInputComponent::setup() {
   }
 }
 
-void WormInputComponent::loop() {
-  // No periodic actions needed - state is updated via CANbus callbacks
-}
-
 void WormInputComponent::dump_config() {
   ESP_LOGCONFIG(TAG, "WormInputComponent:");
-  for (uint8_t addr = 0; addr < 16; addr++) {
-    if (this->input_states_[addr] != 0) {
-      ESP_LOGCONFIG(TAG, "  Module %u state: %08X", addr, this->input_states_[addr]);
-    }
-  }
+  ESP_LOGCONFIG(TAG, "  Manages up to 16 input modules (canbus addr 0000-1111)");
+  ESP_LOGCONFIG(TAG, "  Each module has 32 inputs exposed as gpio pins 1-32");
 }
 
-float WormInputComponent::get_setup_priority() const { return setup_priority::IO; }
+float WormInputComponent::get_setup_priority() const { return setup_priority::HARDWARE; }
 
 void WormInputComponent::on_canbus_frame_(uint32_t can_id, bool extended, bool rtr,
                                           const std::vector<uint8_t> &data) { 
@@ -43,32 +32,31 @@ void WormInputComponent::on_canbus_frame_(uint32_t can_id, bool extended, bool r
   }
 
   // Check if this is an input state message
-  if ((can_id & CAN_INPUT_STATE_MASK) != CAN_INPUT_STATE_MSG) {
-    return;
+  if ((can_id & CAN_INPUT_STATE_MASK) == CAN_INPUT_STATE_MSG) {
+    // Extract input module address (lower 4 bits)
+    uint8_t module_addr = can_id & 0x0F;
+
+    ESP_LOGD(TAG, "Received input module %u state: canid=%04X data=%02X%02X%02X%02X", module_addr, can_id, data[3], data[2], data[1], data[0]);
+
+    // Validate data size (32 bits = 4 bytes per module)
+    if (data.size() != 4) {
+      ESP_LOGW(TAG, "Invalid state message size %d from module %u", data.size(), module_addr);
+      return;
+    }
+
+    // Reconstruct 32-bit state from little-endian CAN data
+    uint32_t new_state = static_cast<uint32_t>(data[0]) |
+      (static_cast<uint32_t>(data[1]) << 8) |
+      (static_cast<uint32_t>(data[2]) << 16) |
+      (static_cast<uint32_t>(data[3]) << 24);
+
+    // Update state if changed
+    if (this->input_states_[module_addr] != new_state) {
+      this->input_states_[module_addr] = new_state;
+      ESP_LOGI(TAG, "Module %u state: %08X", module_addr, new_state);
+    }
   }
-  
-  // Extract input module address (lower 4 bits)
-  uint8_t module_addr = can_id & 0x0F;
-
-  ESP_LOGD(TAG, "Received for module %u: id=%04X data=%02X%02X%02X%02X", module_addr, can_id, data[3], data[2], data[1], data[0]);
-
-  // Validate data size (32 bits = 4 bytes per module)
-  if (data.size() != 4) {
-    ESP_LOGW(TAG, "Invalid state message size %d from module %u", data.size(), module_addr);
-    return;
-  }
-
-  // Reconstruct 32-bit state from little-endian CAN data
-  uint32_t new_state = static_cast<uint32_t>(data[0]) |
-                       (static_cast<uint32_t>(data[1]) << 8) |
-                       (static_cast<uint32_t>(data[2]) << 16) |
-                       (static_cast<uint32_t>(data[3]) << 24);
-
-  // Update state if changed
-  if (this->input_states_[module_addr] != new_state) {
-    this->input_states_[module_addr] = new_state;
-    ESP_LOGI(TAG, "Module %u state: %08X", module_addr, new_state);
-  }
+  // TODO handle monitoring messages
 }
 
 bool WormInputComponent::get_pin_state(uint8_t addr, uint8_t pin) {

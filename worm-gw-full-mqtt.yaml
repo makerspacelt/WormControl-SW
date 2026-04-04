@@ -1,15 +1,18 @@
 substitutions:
-  device_name: worm-gw
+  device_name: "worm-control-full-mqtt"
+  friendly_name: "Worm Control MQTT Full"
+  mqtt_broker: "mqtt.lan"
 
 packages:
   gw: !include common/gw.yaml
 
 mqtt:
-  broker: mqtt.lan
+  broker: "$mqtt_broker"
 
 time:
   - platform: sntp
     id: sntp_time
+    timezone: "Etc/UTC"
 
 # Switches for relay modules
 switch:

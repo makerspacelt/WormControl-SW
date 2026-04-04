@@ -6,11 +6,8 @@ namespace worm_relay {
 
 static const char *const TAG = "worm_relay";
 
+// WormRelayComponent
 void WormRelayComponent::setup() {
-  ESP_LOGCONFIG(TAG, "WormRelayComponent:");
-  ESP_LOGCONFIG(TAG, "  Managing up to 16 relay modules (addr 0-15)");
-  ESP_LOGCONFIG(TAG, "  Each module has 16 relays (pins 0-15)");
-
   // Register CANbus callback for receiving state from relay modules
   if (this->canbus_ != nullptr) {
     this->canbus_->add_callback([this](uint32_t can_id, bool extended, bool rtr,
@@ -22,14 +19,39 @@ void WormRelayComponent::setup() {
 
 void WormRelayComponent::dump_config() {
   ESP_LOGCONFIG(TAG, "WormRelayComponent:");
+  ESP_LOGCONFIG(TAG, "  Manages up to 16 relay modules (canbus addr 0000-1111)");
+  ESP_LOGCONFIG(TAG, "  Each module has 1 USR LED + 15 relays exposed as gpio pins 0-15");
+
   for (uint8_t addr = 0; addr < 16; addr++) {
     if (this->relay_states_[addr] != 0) {
-      ESP_LOGCONFIG(TAG, "  Module %u state: %04X", addr, this->relay_states_[addr]);
+      ESP_LOGCONFIG(TAG, "  Saved module %u state: %04X", addr, this->relay_states_[addr]);
     }
   }
 }
 
-float WormRelayComponent::get_setup_priority() const { return setup_priority::IO; }
+float WormRelayComponent::get_setup_priority() const { return setup_priority::HARDWARE; }
+
+void WormRelayComponent::mark_dirty_(uint8_t addr) {
+  if (addr < 16) {
+    this->dirty_modules_ |= (1u << addr);
+  }
+}
+
+void WormRelayComponent::loop() {
+  // Flush all pending state updates: one CAN frame per dirty module,
+  // coalescing any number of relay changes into a single message.
+  uint16_t dirty = this->dirty_modules_;
+  if (dirty == 0) {
+    return;
+  }
+  this->dirty_modules_ = 0;
+
+  while (dirty) {
+    uint8_t addr = __builtin_ctz(dirty); // Find the index of the first '1' bit
+    dirty &= ~(1u << addr);              // Clear that bit
+    this->send_to_module_(addr);
+  }
+}
 
 void WormRelayComponent::on_canbus_frame_(uint32_t can_id, bool extended, bool rtr,
                                           const std::vector<uint8_t> &data) {
@@ -39,30 +61,29 @@ void WormRelayComponent::on_canbus_frame_(uint32_t can_id, bool extended, bool r
   }
 
   // Check if this is a relay state message
-  if ((can_id & CAN_RELAY_STATE_MASK) != CAN_RELAY_STATE_MSG) {
-    return;
+  if ((can_id & CAN_RELAY_STATE_MASK) == CAN_RELAY_STATE_MSG) {
+    // Extract relay module address (lower 4 bits)
+    uint8_t addr = can_id & 0x0F;
+
+    ESP_LOGD(TAG, "Received relay module %u state: canid=%04X data=%02X%02X", addr, can_id, data[1], data[0]);
+
+    // Validate data size
+    if (data.size() != 2) {
+      ESP_LOGW(TAG, "Invalid state message size %d from module %u", data.size(), addr);
+      return;
+    }
+
+    // Parse relay states (little-endian: byte0=low8, byte1=high8)
+    uint16_t states_received = data[0] | (static_cast<uint16_t>(data[1]) << 8);
+
+    // Re-send canbus message if state is invalid (gw is source of truth), 
+    uint16_t states_current = this->relay_states_[addr];
+    if (states_current != states_received) {
+      ESP_LOGI(TAG, "Refreshing module %u state (gw=%04X, module=%04X)", addr, states_current, states_received);
+      this->send_to_module_(addr);
+    }
   }
-
-  // Extract relay module address (lower 4 bits)
-  uint8_t module_addr = can_id & 0x0F;
-
-  ESP_LOGD(TAG, "Received for module %u: id=%04X data=%02X%02X", module_addr, can_id, data[1], data[0]);
-
-  // Validate data size
-  if (data.size() != 2) {
-    ESP_LOGW(TAG, "Invalid state message size %d from module %u", data.size(), module_addr);
-    return;
-  }
-
-  // Parse relay states (little-endian: byte0=low8, byte1=high8)
-  uint16_t states = data[0] | (static_cast<uint16_t>(data[1]) << 8);
-
-  // Update state
-  uint16_t old_states = this->relay_states_[module_addr];
-  if (old_states != states) {
-    ESP_LOGI(TAG, "Module %u state: %04X -> %04X", module_addr, old_states, states);
-    this->relay_states_[module_addr] = states;
-  }
+  // TODO handle monitoring messages
 }
 
 bool WormRelayComponent::get_pin_state(uint8_t addr, uint8_t pin) {
@@ -103,7 +124,9 @@ void WormRelayComponent::set_relay(uint8_t addr, uint8_t relay_no, bool value) {
     this->relay_states_[addr] &= ~mask;
   }
 
-  this->send_to_module_(addr);
+  // Mark module as dirty instead of sending immediately.
+  // The loop() will batch all dirty modules into one CAN frame each.
+  this->mark_dirty_(addr);
 }
 
 void WormRelayComponent::send_to_module_(uint8_t addr) {
@@ -119,10 +142,10 @@ void WormRelayComponent::send_to_module_(uint8_t addr) {
   data[0] = states & 0xFF;
   data[1] = (states >> 8) & 0xFF;
 
-  // Send with standard CAN ID (11-bit), priority=1 (lower priority for reliable delivery)
+  // Send with standard CAN ID (11-bit)
   this->canbus_->send_data(can_id, false, data);
 
-  ESP_LOGD(TAG, "Sent to module %u: id=%04X data=%02X%02X", addr, can_id, data[1], data[0]);
+  ESP_LOGD(TAG, "Sent to module %u: canid=%04X data=%02X%02X", addr, can_id, data[1], data[0]);
 }
 
 // WormRelayGPIOPin methods

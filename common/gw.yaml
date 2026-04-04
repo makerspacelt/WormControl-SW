@@ -1,12 +1,22 @@
+substitutions:
+  device_name: "worm-control"
+  friendly_name: "Worm Control"
+  project_name: "worm-control"
+  version: 0.5.0
+
+esphome:
+  name: "$device_name"
+  friendly_name: "$friendly_name"
+  name_add_mac_suffix: true
+  project:
+    name: "$project_name"
+    version: "$version"
+
 esp32:
   board: esp32-c3-devkitm-1
   variant: esp32c3
   framework:
     type: esp-idf
-
-esphome:
-  name: "${device_name}"
-  name_add_mac_suffix: true
 
 external_components:
   - source:
@@ -20,7 +30,11 @@ logger:
   level: INFO
   logs:
     canbus: INFO
+  # We have found that a lower baud rate interferes with canbus, maybe because esp is too busy sending serial data.
   baud_rate: 921600
+
+ota:
+  platform: esphome
  
 ethernet:
   type: w5500
@@ -39,16 +53,14 @@ canbus:
     can_id: 0
     bit_rate: 125kbps
  
-# Single worm_relay component manages all relay modules (addresses 0-15)
-# Each module has 15 relays (gpio pin numbers 1-15)
-# `addr` in pin definition specifies the module address (binary string or integer 0-15)
+# Single worm_relay component manages all relay modules
+# Each module has USR LED + 15 relays (gpio pin numbers 0-15)
 worm_relay:
   id: wrl
   canbus: espcan
 
-# Single worm_input component manages all input modules (addresses 0-15)
+# Single worm_input component manages all input modules
 # Each module has 32 inputs (gpio pin numbers 1-32)
-# `addr` in gpio pin definition specifies the module address (binary string or integer 0-15)
 worm_input:
   id: win
   canbus: espcan

@@ -5,7 +5,7 @@ esp32:
     type: esp-idf
 
 esphome:
-  name: wormcontrol-relay
+  name: worm-input
   includes:
     - <bitset>
 
@@ -413,7 +413,7 @@ canbus:
     bit_rate: 125kbps
     on_frame:
       # Input module does not receive control messages, but check if any message is addressed to us
-      - can_id: 0b10000000000
+      - can_id: 0b00000000000
         can_id_mask: 0b11111110000
         then:
           - lambda: |-

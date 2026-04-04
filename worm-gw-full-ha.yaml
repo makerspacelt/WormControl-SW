@@ -1,5 +1,6 @@
 substitutions:
-  device_name: worm-gw
+  device_name: worm-control-full-ha
+  friendly_name: "Worm Control HA Full"
 
 packages:
   gw: !include common/gw.yaml
@@ -9,6 +10,7 @@ api:
 time:
   - platform: homeassistant
     id: ha_time
+    timezone: 'Etc/UTC'
 
 # Switches for relay modules
 switch:

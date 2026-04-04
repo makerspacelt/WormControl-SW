@@ -25,13 +25,11 @@ CONF_ADDR = "addr"
 
 # Validate address as 4-digit binary string like "0000", "0001", ..., "1111"
 def validate_addr(value):
-    if isinstance(value, int):
-        return cv.int_range(min=0, max=15)(value)
     if isinstance(value, str):
         if len(value) != 4 or not all(c in "01" for c in value):
-            raise cv.Invalid("Address must be a 4-digit binary string (e.g., '0000', '0001') or integer 0-15")
+            raise cv.Invalid('Address must be a 4-digit binary string (e.g., "0000", "0001")')
         return int(value, 2)
-    raise cv.Invalid("Address must be a 4-digit binary string (e.g., '0000', '0001') or integer 0-15")
+    raise cv.Invalid('Address must be a 4-digit binary string (e.g., "0000", "0001")')
 
 CONFIG_SCHEMA = cv.Schema(
     {
@@ -70,8 +68,6 @@ def _transform_pin_number(value):
     if number is None:
         raise cv.Invalid("'number' is required")
     
-    # Validate
-    addr = validate_addr(addr)
     # User-facing number is 1-32, internal is 0-31
     number = cv.int_range(min=1, max=32, max_included=True)(number)
     
@@ -82,8 +78,6 @@ def _transform_pin_number(value):
     result = dict(value)
     result[CONF_ADDR] = addr
     result[CONF_NUMBER] = internal_pin  # Replace with internal pin for uniqueness tracking
-    result['_input_pin'] = number - 1  # Store for code generation (0-31 internal)
-    
     return result
 
 
@@ -122,7 +116,6 @@ async def worm_input_pin_to_code(config):
     addr = internal_pin // 32
     input_pin = internal_pin % 32
 
-    cg.add(var.set_pin(internal_pin))
     cg.add(var.set_addr(addr))
     cg.add(var.set_input_pin(input_pin))
     cg.add(var.set_inverted(config[CONF_INVERTED]))
