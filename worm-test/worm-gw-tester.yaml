@@ -1,20 +1,25 @@
-substitutions:
-  device_name: worm-gw-tester
-  topic_root_hass: homeassistant
-  topic_root_stats_system: tmp/device/${device_name}/system
+esp32:
+  board: esp32-c3-devkitm-1
+  variant: esp32c3
+  framework:
+    type: esp-idf
 
-packages:
-  base: !include inc/pkg-base.yaml
-
+logger:
+  level: INFO
+  logs:
+    canbus: INFO
+  # We have found that a lower baud rate interferes with canbus, maybe because esp is too busy sending serial data.
+  baud_rate: 921600 
+ 
 globals:
-  - id: g_relay_mqtt_subs # mqtt subscription states (subscribed or not)
-    type: bool[256]
-  
   - id: g_relay_states # relay output states - max 16 modules, 16 bits for each module
     type: int[16]
     restore_value: yes
 
 esphome:
+  name: worm-gw-tester
+  includes:
+    - <bitset>
   on_boot:
     - priority: -500
       then:
@@ -85,11 +90,6 @@ ethernet:
   #clock_speed: 16MHz
   # gnd and 3.3V
 
-mqtt:
-  id: mq
-  broker: mqtt.lan
-  topic_prefix: null
-
 script:
   - id: s_canbus_set_relays
     parameters:
@@ -104,41 +104,6 @@ script:
           data[1] = (relay_states >> 8) & 0xff;
           id(espcan).send_data(relay_can_addr, false, data);
           
-  - id: s_mqtt_sub_relay_set
-    parameters:
-      topic: string
-      topic_state: string
-      payload: string
-      relay_addr: int
-      output_no: int
-    then:
-      - lambda: |-
-          /*
-          // payload from mqtt is "0" or "OFF" or "1" or "ON"
-          // relay_states is 16 bits, 1 bit per relay
-          // update the g_relay_states global with the newest relay state
-          int relay_states = id(g_relay_states)[relay_addr];
-          int relay_states0 = relay_states;
-          bool is_on = payload == "1" || payload == "ON";
-          if (is_on) {
-            relay_states |= (1 << output_no);
-          } else {
-            relay_states &= ~(1 << output_no);
-          }
-          if (relay_states0 != relay_states) {
-            std::string payload = is_on ? "ON" : "OFF";
-            id(mq).publish(topic_state, payload, 0, false);
-          }
-          id(g_relay_states)[relay_addr] = relay_states;
-          ESP_LOGI("s_mqtt_sub_relay_set", "MQTT topic=%s payload=%s -> canbus relay=%s data=%s",
-            topic.c_str(),
-            payload.c_str(),
-            std::bitset<4>(relay_addr).to_string().c_str(),
-            std::bitset<16>(relay_states).to_string().c_str()
-          );
-          id(s_canbus_set_relays)->execute(relay_addr, relay_states);
-          */
-
 canbus:
   - platform: esp32_can
     id: espcan
@@ -172,41 +137,6 @@ canbus:
                   std::bitset<8>(x[0]).to_string().c_str()
                 );
               }
-              
-              for (int i = 0; i < 16; i++) {
-                std::string name = str_sprintf("relay%s_%02d", std::bitset<4>(relay_addr).to_string().c_str(), i);
-                std::string topic = str_sprintf("${topic_root_hass}/switch/%s", name.c_str());
-                std::string topic_config = str_sprintf("%s/config", topic.c_str());
-                std::string topic_set = str_sprintf("%s/set", topic.c_str());
-                std::string topic_state = str_sprintf("%s/state", topic.c_str());
-              
-                // publish all relay outputs as switches to mqtt so homeassistant picks them up
-                id(mq).publish_json(topic_config, [=](JsonObject root) {
-                  root["name"] = name;
-                  // TODO figure out which properties are required by homeassistant
-                  // root["device_class"] = "switch";
-                  root["command_topic"] = topic_set;
-                  root["state_topic"] = topic_state;
-                  // root["unique_id"] = "";
-                  //root["device"] = [=](JsonObject device) {
-                  //  device["identifiers"] = "";
-                  //  device["name"] = "";
-                  //};
-                }, 0, false);
-
-                // Key for subscription tracking
-                int sub_key = (relay_addr << 4) | i;
-
-                if (!id(g_relay_mqtt_subs)[sub_key]) {
-                  // Not subscribed yet - setup an mqtt subscription for each relay's mqtt topic and send changes via canbus.
-                  // (ESPHome will keep automatically retrying the subscription, so we want to do it only once)
-                  id(mq).subscribe(topic_set, [=](const std::string &topic, const std::string &payload) {
-                    id(s_mqtt_sub_relay_set)->execute(topic, topic_state, payload, relay_addr, i);
-                  });
-                  id(g_relay_mqtt_subs)[sub_key] = true;
-                }
-                
-              } // end for
       - can_id:      0b10010110000
         can_id_mask: 0b11111110000
         then:
@@ -228,6 +158,3 @@ canbus:
               
               //ESP_LOGD("Monitoring", "Relay addr: %u, Type: %s, Value: %.2f, Index: %u", relay_addr, std::bitset<12>(type).to_string().c_str(), value, sensor_idx);
 
-
-              
-# TODO HASS support: will probably need to change the retain flag to true in mqtt.publish()

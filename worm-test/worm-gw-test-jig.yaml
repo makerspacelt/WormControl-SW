@@ -4,7 +4,7 @@ substitutions:
   mqtt_broker: "mqtt.lan"
 
 packages:
-  gw: !include ../common/gw.yaml
+  gw: !include common/gw.yaml
 
 mqtt:
   broker: "$mqtt_broker"

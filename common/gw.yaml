@@ -1,7 +1,7 @@
 substitutions:
   device_name: "worm-control"
   friendly_name: "Worm Control"
-  project_name: "worm-control"
+  project_name: "makerspacelt.worm-control"
   version: 0.5.0
 
 esphome:
