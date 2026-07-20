@@ -14,33 +14,33 @@ time:
 
 # Switches for relay modules
 switch:
-  - { platform: gpio, id: M00_R01, name: M00_R01, pin: { worm_relay: wrl, addr: "0000", number: 1 } }
-  - { platform: gpio, id: M00_R02, name: M00_R02, pin: { worm_relay: wrl, addr: "0000", number: 2 } }
-  - { platform: gpio, id: M00_R03, name: M00_R03, pin: { worm_relay: wrl, addr: "0000", number: 3 } }
-  - { platform: gpio, id: M00_R04, name: M00_R04, pin: { worm_relay: wrl, addr: "0000", number: 4 } }
-  - { platform: gpio, id: M00_R05, name: M00_R05, pin: { worm_relay: wrl, addr: "0000", number: 5 } }
-  - { platform: gpio, id: M00_R06, name: M00_R06, pin: { worm_relay: wrl, addr: "0000", number: 6 } }
-  - { platform: gpio, id: M00_R07, name: M00_R07, pin: { worm_relay: wrl, addr: "0000", number: 7 } }
-  - { platform: gpio, id: M00_R08, name: M00_R08, pin: { worm_relay: wrl, addr: "0000", number: 8 } }
-  - { platform: gpio, id: M00_R09, name: M00_R09, pin: { worm_relay: wrl, addr: "0000", number: 9 } }
-  - { platform: gpio, id: M00_R10, name: M00_R10, pin: { worm_relay: wrl, addr: "0000", number: 10 } }
-  - { platform: gpio, id: M00_R11, name: M00_R11, pin: { worm_relay: wrl, addr: "0000", number: 11 } }
-  - { platform: gpio, id: M00_R12, name: M00_R12, pin: { worm_relay: wrl, addr: "0000", number: 12 } }
-  - { platform: gpio, id: M00_R13, name: M00_R13, pin: { worm_relay: wrl, addr: "0000", number: 13 } }
-  - { platform: gpio, id: M00_R14, name: M00_R14, pin: { worm_relay: wrl, addr: "0000", number: 14 } }
-  - { platform: gpio, id: M00_R15, name: M00_R15, pin: { worm_relay: wrl, addr: "0000", number: 15 } }
+  - { platform: gpio, id: M00_R01, name: M00_R01, pin: { worm_relay: wrl, addr: "0000", number:  1 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M00_R02, name: M00_R02, pin: { worm_relay: wrl, addr: "0000", number:  2 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M00_R03, name: M00_R03, pin: { worm_relay: wrl, addr: "0000", number:  3 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M00_R04, name: M00_R04, pin: { worm_relay: wrl, addr: "0000", number:  4 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M00_R05, name: M00_R05, pin: { worm_relay: wrl, addr: "0000", number:  5 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M00_R06, name: M00_R06, pin: { worm_relay: wrl, addr: "0000", number:  6 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M00_R07, name: M00_R07, pin: { worm_relay: wrl, addr: "0000", number:  7 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M00_R08, name: M00_R08, pin: { worm_relay: wrl, addr: "0000", number:  8 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M00_R09, name: M00_R09, pin: { worm_relay: wrl, addr: "0000", number:  9 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M00_R10, name: M00_R10, pin: { worm_relay: wrl, addr: "0000", number: 10 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M00_R11, name: M00_R11, pin: { worm_relay: wrl, addr: "0000", number: 11 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M00_R12, name: M00_R12, pin: { worm_relay: wrl, addr: "0000", number: 12 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M00_R13, name: M00_R13, pin: { worm_relay: wrl, addr: "0000", number: 13 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M00_R14, name: M00_R14, pin: { worm_relay: wrl, addr: "0000", number: 14 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M00_R15, name: M00_R15, pin: { worm_relay: wrl, addr: "0000", number: 15 }, restore_mode: RESTORE_DEFAULT_OFF }
 
 # Binary sensors for input modules
 binary_sensor:
-  - { platform: gpio, id: M00_IN01, name: M00_IN01, pin: { worm_input: win, addr: "0000", number: 1 } }
-  - { platform: gpio, id: M00_IN02, name: M00_IN02, pin: { worm_input: win, addr: "0000", number: 2 } }
-  - { platform: gpio, id: M00_IN03, name: M00_IN03, pin: { worm_input: win, addr: "0000", number: 3 } }
-  - { platform: gpio, id: M00_IN04, name: M00_IN04, pin: { worm_input: win, addr: "0000", number: 4 } }
-  - { platform: gpio, id: M00_IN05, name: M00_IN05, pin: { worm_input: win, addr: "0000", number: 5 } }
-  - { platform: gpio, id: M00_IN06, name: M00_IN06, pin: { worm_input: win, addr: "0000", number: 6 } }
-  - { platform: gpio, id: M00_IN07, name: M00_IN07, pin: { worm_input: win, addr: "0000", number: 7 } }
-  - { platform: gpio, id: M00_IN08, name: M00_IN08, pin: { worm_input: win, addr: "0000", number: 8 } }
-  - { platform: gpio, id: M00_IN09, name: M00_IN09, pin: { worm_input: win, addr: "0000", number: 9 } }
+  - { platform: gpio, id: M00_IN01, name: M00_IN01, pin: { worm_input: win, addr: "0000", number:  1 } }
+  - { platform: gpio, id: M00_IN02, name: M00_IN02, pin: { worm_input: win, addr: "0000", number:  2 } }
+  - { platform: gpio, id: M00_IN03, name: M00_IN03, pin: { worm_input: win, addr: "0000", number:  3 } }
+  - { platform: gpio, id: M00_IN04, name: M00_IN04, pin: { worm_input: win, addr: "0000", number:  4 } }
+  - { platform: gpio, id: M00_IN05, name: M00_IN05, pin: { worm_input: win, addr: "0000", number:  5 } }
+  - { platform: gpio, id: M00_IN06, name: M00_IN06, pin: { worm_input: win, addr: "0000", number:  6 } }
+  - { platform: gpio, id: M00_IN07, name: M00_IN07, pin: { worm_input: win, addr: "0000", number:  7 } }
+  - { platform: gpio, id: M00_IN08, name: M00_IN08, pin: { worm_input: win, addr: "0000", number:  8 } }
+  - { platform: gpio, id: M00_IN09, name: M00_IN09, pin: { worm_input: win, addr: "0000", number:  9 } }
   - { platform: gpio, id: M00_IN10, name: M00_IN10, pin: { worm_input: win, addr: "0000", number: 10 } }
   - { platform: gpio, id: M00_IN11, name: M00_IN11, pin: { worm_input: win, addr: "0000", number: 11 } }
   - { platform: gpio, id: M00_IN12, name: M00_IN12, pin: { worm_input: win, addr: "0000", number: 12 } }

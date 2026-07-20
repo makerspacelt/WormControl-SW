@@ -14,273 +14,273 @@ time:
 
 # Switches for relay modules
 switch:
-  - { platform: gpio, id: M00_R01, name: M00_R01, pin: { worm_relay: wrl, addr: "0000", number: 1 } }
-  - { platform: gpio, id: M00_R02, name: M00_R02, pin: { worm_relay: wrl, addr: "0000", number: 2 } }
-  - { platform: gpio, id: M00_R03, name: M00_R03, pin: { worm_relay: wrl, addr: "0000", number: 3 } }
-  - { platform: gpio, id: M00_R04, name: M00_R04, pin: { worm_relay: wrl, addr: "0000", number: 4 } }
-  - { platform: gpio, id: M00_R05, name: M00_R05, pin: { worm_relay: wrl, addr: "0000", number: 5 } }
-  - { platform: gpio, id: M00_R06, name: M00_R06, pin: { worm_relay: wrl, addr: "0000", number: 6 } }
-  - { platform: gpio, id: M00_R07, name: M00_R07, pin: { worm_relay: wrl, addr: "0000", number: 7 } }
-  - { platform: gpio, id: M00_R08, name: M00_R08, pin: { worm_relay: wrl, addr: "0000", number: 8 } }
-  - { platform: gpio, id: M00_R09, name: M00_R09, pin: { worm_relay: wrl, addr: "0000", number: 9 } }
-  - { platform: gpio, id: M00_R10, name: M00_R10, pin: { worm_relay: wrl, addr: "0000", number: 10 } }
-  - { platform: gpio, id: M00_R11, name: M00_R11, pin: { worm_relay: wrl, addr: "0000", number: 11 } }
-  - { platform: gpio, id: M00_R12, name: M00_R12, pin: { worm_relay: wrl, addr: "0000", number: 12 } }
-  - { platform: gpio, id: M00_R13, name: M00_R13, pin: { worm_relay: wrl, addr: "0000", number: 13 } }
-  - { platform: gpio, id: M00_R14, name: M00_R14, pin: { worm_relay: wrl, addr: "0000", number: 14 } }
-  - { platform: gpio, id: M00_R15, name: M00_R15, pin: { worm_relay: wrl, addr: "0000", number: 15 } }
+  - { platform: gpio, id: M00_R01, name: M00_R01, pin: { worm_relay: wrl, addr: "0000", number:  1 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M00_R02, name: M00_R02, pin: { worm_relay: wrl, addr: "0000", number:  2 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M00_R03, name: M00_R03, pin: { worm_relay: wrl, addr: "0000", number:  3 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M00_R04, name: M00_R04, pin: { worm_relay: wrl, addr: "0000", number:  4 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M00_R05, name: M00_R05, pin: { worm_relay: wrl, addr: "0000", number:  5 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M00_R06, name: M00_R06, pin: { worm_relay: wrl, addr: "0000", number:  6 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M00_R07, name: M00_R07, pin: { worm_relay: wrl, addr: "0000", number:  7 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M00_R08, name: M00_R08, pin: { worm_relay: wrl, addr: "0000", number:  8 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M00_R09, name: M00_R09, pin: { worm_relay: wrl, addr: "0000", number:  9 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M00_R10, name: M00_R10, pin: { worm_relay: wrl, addr: "0000", number: 10 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M00_R11, name: M00_R11, pin: { worm_relay: wrl, addr: "0000", number: 11 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M00_R12, name: M00_R12, pin: { worm_relay: wrl, addr: "0000", number: 12 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M00_R13, name: M00_R13, pin: { worm_relay: wrl, addr: "0000", number: 13 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M00_R14, name: M00_R14, pin: { worm_relay: wrl, addr: "0000", number: 14 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M00_R15, name: M00_R15, pin: { worm_relay: wrl, addr: "0000", number: 15 }, restore_mode: RESTORE_DEFAULT_OFF }
 
-  - { platform: gpio, id: M01_R01, name: M01_R01, pin: { worm_relay: wrl, addr: "0001", number: 1 } }
-  - { platform: gpio, id: M01_R02, name: M01_R02, pin: { worm_relay: wrl, addr: "0001", number: 2 } }
-  - { platform: gpio, id: M01_R03, name: M01_R03, pin: { worm_relay: wrl, addr: "0001", number: 3 } }
-  - { platform: gpio, id: M01_R04, name: M01_R04, pin: { worm_relay: wrl, addr: "0001", number: 4 } }
-  - { platform: gpio, id: M01_R05, name: M01_R05, pin: { worm_relay: wrl, addr: "0001", number: 5 } }
-  - { platform: gpio, id: M01_R06, name: M01_R06, pin: { worm_relay: wrl, addr: "0001", number: 6 } }
-  - { platform: gpio, id: M01_R07, name: M01_R07, pin: { worm_relay: wrl, addr: "0001", number: 7 } }
-  - { platform: gpio, id: M01_R08, name: M01_R08, pin: { worm_relay: wrl, addr: "0001", number: 8 } }
-  - { platform: gpio, id: M01_R09, name: M01_R09, pin: { worm_relay: wrl, addr: "0001", number: 9 } }
-  - { platform: gpio, id: M01_R10, name: M01_R10, pin: { worm_relay: wrl, addr: "0001", number: 10 } }
-  - { platform: gpio, id: M01_R11, name: M01_R11, pin: { worm_relay: wrl, addr: "0001", number: 11 } }
-  - { platform: gpio, id: M01_R12, name: M01_R12, pin: { worm_relay: wrl, addr: "0001", number: 12 } }
-  - { platform: gpio, id: M01_R13, name: M01_R13, pin: { worm_relay: wrl, addr: "0001", number: 13 } }
-  - { platform: gpio, id: M01_R14, name: M01_R14, pin: { worm_relay: wrl, addr: "0001", number: 14 } }
-  - { platform: gpio, id: M01_R15, name: M01_R15, pin: { worm_relay: wrl, addr: "0001", number: 15 } }
+  - { platform: gpio, id: M01_R01, name: M01_R01, pin: { worm_relay: wrl, addr: "0001", number:  1 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M01_R02, name: M01_R02, pin: { worm_relay: wrl, addr: "0001", number:  2 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M01_R03, name: M01_R03, pin: { worm_relay: wrl, addr: "0001", number:  3 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M01_R04, name: M01_R04, pin: { worm_relay: wrl, addr: "0001", number:  4 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M01_R05, name: M01_R05, pin: { worm_relay: wrl, addr: "0001", number:  5 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M01_R06, name: M01_R06, pin: { worm_relay: wrl, addr: "0001", number:  6 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M01_R07, name: M01_R07, pin: { worm_relay: wrl, addr: "0001", number:  7 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M01_R08, name: M01_R08, pin: { worm_relay: wrl, addr: "0001", number:  8 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M01_R09, name: M01_R09, pin: { worm_relay: wrl, addr: "0001", number:  9 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M01_R10, name: M01_R10, pin: { worm_relay: wrl, addr: "0001", number: 10 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M01_R11, name: M01_R11, pin: { worm_relay: wrl, addr: "0001", number: 11 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M01_R12, name: M01_R12, pin: { worm_relay: wrl, addr: "0001", number: 12 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M01_R13, name: M01_R13, pin: { worm_relay: wrl, addr: "0001", number: 13 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M01_R14, name: M01_R14, pin: { worm_relay: wrl, addr: "0001", number: 14 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M01_R15, name: M01_R15, pin: { worm_relay: wrl, addr: "0001", number: 15 }, restore_mode: RESTORE_DEFAULT_OFF }
 
-  - { platform: gpio, id: M02_R01, name: M02_R01, pin: { worm_relay: wrl, addr: "0010", number: 1 } }
-  - { platform: gpio, id: M02_R02, name: M02_R02, pin: { worm_relay: wrl, addr: "0010", number: 2 } }
-  - { platform: gpio, id: M02_R03, name: M02_R03, pin: { worm_relay: wrl, addr: "0010", number: 3 } }
-  - { platform: gpio, id: M02_R04, name: M02_R04, pin: { worm_relay: wrl, addr: "0010", number: 4 } }
-  - { platform: gpio, id: M02_R05, name: M02_R05, pin: { worm_relay: wrl, addr: "0010", number: 5 } }
-  - { platform: gpio, id: M02_R06, name: M02_R06, pin: { worm_relay: wrl, addr: "0010", number: 6 } }
-  - { platform: gpio, id: M02_R07, name: M02_R07, pin: { worm_relay: wrl, addr: "0010", number: 7 } }
-  - { platform: gpio, id: M02_R08, name: M02_R08, pin: { worm_relay: wrl, addr: "0010", number: 8 } }
-  - { platform: gpio, id: M02_R09, name: M02_R09, pin: { worm_relay: wrl, addr: "0010", number: 9 } }
-  - { platform: gpio, id: M02_R10, name: M02_R10, pin: { worm_relay: wrl, addr: "0010", number: 10 } }
-  - { platform: gpio, id: M02_R11, name: M02_R11, pin: { worm_relay: wrl, addr: "0010", number: 11 } }
-  - { platform: gpio, id: M02_R12, name: M02_R12, pin: { worm_relay: wrl, addr: "0010", number: 12 } }
-  - { platform: gpio, id: M02_R13, name: M02_R13, pin: { worm_relay: wrl, addr: "0010", number: 13 } }
-  - { platform: gpio, id: M02_R14, name: M02_R14, pin: { worm_relay: wrl, addr: "0010", number: 14 } }
-  - { platform: gpio, id: M02_R15, name: M02_R15, pin: { worm_relay: wrl, addr: "0010", number: 15 } }
+  - { platform: gpio, id: M02_R01, name: M02_R01, pin: { worm_relay: wrl, addr: "0010", number:  1 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M02_R02, name: M02_R02, pin: { worm_relay: wrl, addr: "0010", number:  2 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M02_R03, name: M02_R03, pin: { worm_relay: wrl, addr: "0010", number:  3 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M02_R04, name: M02_R04, pin: { worm_relay: wrl, addr: "0010", number:  4 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M02_R05, name: M02_R05, pin: { worm_relay: wrl, addr: "0010", number:  5 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M02_R06, name: M02_R06, pin: { worm_relay: wrl, addr: "0010", number:  6 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M02_R07, name: M02_R07, pin: { worm_relay: wrl, addr: "0010", number:  7 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M02_R08, name: M02_R08, pin: { worm_relay: wrl, addr: "0010", number:  8 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M02_R09, name: M02_R09, pin: { worm_relay: wrl, addr: "0010", number:  9 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M02_R10, name: M02_R10, pin: { worm_relay: wrl, addr: "0010", number: 10 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M02_R11, name: M02_R11, pin: { worm_relay: wrl, addr: "0010", number: 11 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M02_R12, name: M02_R12, pin: { worm_relay: wrl, addr: "0010", number: 12 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M02_R13, name: M02_R13, pin: { worm_relay: wrl, addr: "0010", number: 13 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M02_R14, name: M02_R14, pin: { worm_relay: wrl, addr: "0010", number: 14 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M02_R15, name: M02_R15, pin: { worm_relay: wrl, addr: "0010", number: 15 }, restore_mode: RESTORE_DEFAULT_OFF }
 
-  - { platform: gpio, id: M03_R01, name: M03_R01, pin: { worm_relay: wrl, addr: "0011", number: 1 } }
-  - { platform: gpio, id: M03_R02, name: M03_R02, pin: { worm_relay: wrl, addr: "0011", number: 2 } }
-  - { platform: gpio, id: M03_R03, name: M03_R03, pin: { worm_relay: wrl, addr: "0011", number: 3 } }
-  - { platform: gpio, id: M03_R04, name: M03_R04, pin: { worm_relay: wrl, addr: "0011", number: 4 } }
-  - { platform: gpio, id: M03_R05, name: M03_R05, pin: { worm_relay: wrl, addr: "0011", number: 5 } }
-  - { platform: gpio, id: M03_R06, name: M03_R06, pin: { worm_relay: wrl, addr: "0011", number: 6 } }
-  - { platform: gpio, id: M03_R07, name: M03_R07, pin: { worm_relay: wrl, addr: "0011", number: 7 } }
-  - { platform: gpio, id: M03_R08, name: M03_R08, pin: { worm_relay: wrl, addr: "0011", number: 8 } }
-  - { platform: gpio, id: M03_R09, name: M03_R09, pin: { worm_relay: wrl, addr: "0011", number: 9 } }
-  - { platform: gpio, id: M03_R10, name: M03_R10, pin: { worm_relay: wrl, addr: "0011", number: 10 } }
-  - { platform: gpio, id: M03_R11, name: M03_R11, pin: { worm_relay: wrl, addr: "0011", number: 11 } }
-  - { platform: gpio, id: M03_R12, name: M03_R12, pin: { worm_relay: wrl, addr: "0011", number: 12 } }
-  - { platform: gpio, id: M03_R13, name: M03_R13, pin: { worm_relay: wrl, addr: "0011", number: 13 } }
-  - { platform: gpio, id: M03_R14, name: M03_R14, pin: { worm_relay: wrl, addr: "0011", number: 14 } }
-  - { platform: gpio, id: M03_R15, name: M03_R15, pin: { worm_relay: wrl, addr: "0011", number: 15 } }
+  - { platform: gpio, id: M03_R01, name: M03_R01, pin: { worm_relay: wrl, addr: "0011", number:  1 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M03_R02, name: M03_R02, pin: { worm_relay: wrl, addr: "0011", number:  2 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M03_R03, name: M03_R03, pin: { worm_relay: wrl, addr: "0011", number:  3 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M03_R04, name: M03_R04, pin: { worm_relay: wrl, addr: "0011", number:  4 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M03_R05, name: M03_R05, pin: { worm_relay: wrl, addr: "0011", number:  5 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M03_R06, name: M03_R06, pin: { worm_relay: wrl, addr: "0011", number:  6 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M03_R07, name: M03_R07, pin: { worm_relay: wrl, addr: "0011", number:  7 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M03_R08, name: M03_R08, pin: { worm_relay: wrl, addr: "0011", number:  8 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M03_R09, name: M03_R09, pin: { worm_relay: wrl, addr: "0011", number:  9 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M03_R10, name: M03_R10, pin: { worm_relay: wrl, addr: "0011", number: 10 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M03_R11, name: M03_R11, pin: { worm_relay: wrl, addr: "0011", number: 11 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M03_R12, name: M03_R12, pin: { worm_relay: wrl, addr: "0011", number: 12 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M03_R13, name: M03_R13, pin: { worm_relay: wrl, addr: "0011", number: 13 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M03_R14, name: M03_R14, pin: { worm_relay: wrl, addr: "0011", number: 14 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M03_R15, name: M03_R15, pin: { worm_relay: wrl, addr: "0011", number: 15 }, restore_mode: RESTORE_DEFAULT_OFF }
 
-  - { platform: gpio, id: M04_R01, name: M04_R01, pin: { worm_relay: wrl, addr: "0100", number: 1 } }
-  - { platform: gpio, id: M04_R02, name: M04_R02, pin: { worm_relay: wrl, addr: "0100", number: 2 } }
-  - { platform: gpio, id: M04_R03, name: M04_R03, pin: { worm_relay: wrl, addr: "0100", number: 3 } }
-  - { platform: gpio, id: M04_R04, name: M04_R04, pin: { worm_relay: wrl, addr: "0100", number: 4 } }
-  - { platform: gpio, id: M04_R05, name: M04_R05, pin: { worm_relay: wrl, addr: "0100", number: 5 } }
-  - { platform: gpio, id: M04_R06, name: M04_R06, pin: { worm_relay: wrl, addr: "0100", number: 6 } }
-  - { platform: gpio, id: M04_R07, name: M04_R07, pin: { worm_relay: wrl, addr: "0100", number: 7 } }
-  - { platform: gpio, id: M04_R08, name: M04_R08, pin: { worm_relay: wrl, addr: "0100", number: 8 } }
-  - { platform: gpio, id: M04_R09, name: M04_R09, pin: { worm_relay: wrl, addr: "0100", number: 9 } }
-  - { platform: gpio, id: M04_R10, name: M04_R10, pin: { worm_relay: wrl, addr: "0100", number: 10 } }
-  - { platform: gpio, id: M04_R11, name: M04_R11, pin: { worm_relay: wrl, addr: "0100", number: 11 } }
-  - { platform: gpio, id: M04_R12, name: M04_R12, pin: { worm_relay: wrl, addr: "0100", number: 12 } }
-  - { platform: gpio, id: M04_R13, name: M04_R13, pin: { worm_relay: wrl, addr: "0100", number: 13 } }
-  - { platform: gpio, id: M04_R14, name: M04_R14, pin: { worm_relay: wrl, addr: "0100", number: 14 } }
-  - { platform: gpio, id: M04_R15, name: M04_R15, pin: { worm_relay: wrl, addr: "0100", number: 15 } }
+  - { platform: gpio, id: M04_R01, name: M04_R01, pin: { worm_relay: wrl, addr: "0100", number:  1 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M04_R02, name: M04_R02, pin: { worm_relay: wrl, addr: "0100", number:  2 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M04_R03, name: M04_R03, pin: { worm_relay: wrl, addr: "0100", number:  3 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M04_R04, name: M04_R04, pin: { worm_relay: wrl, addr: "0100", number:  4 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M04_R05, name: M04_R05, pin: { worm_relay: wrl, addr: "0100", number:  5 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M04_R06, name: M04_R06, pin: { worm_relay: wrl, addr: "0100", number:  6 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M04_R07, name: M04_R07, pin: { worm_relay: wrl, addr: "0100", number:  7 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M04_R08, name: M04_R08, pin: { worm_relay: wrl, addr: "0100", number:  8 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M04_R09, name: M04_R09, pin: { worm_relay: wrl, addr: "0100", number:  9 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M04_R10, name: M04_R10, pin: { worm_relay: wrl, addr: "0100", number: 10 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M04_R11, name: M04_R11, pin: { worm_relay: wrl, addr: "0100", number: 11 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M04_R12, name: M04_R12, pin: { worm_relay: wrl, addr: "0100", number: 12 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M04_R13, name: M04_R13, pin: { worm_relay: wrl, addr: "0100", number: 13 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M04_R14, name: M04_R14, pin: { worm_relay: wrl, addr: "0100", number: 14 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M04_R15, name: M04_R15, pin: { worm_relay: wrl, addr: "0100", number: 15 }, restore_mode: RESTORE_DEFAULT_OFF }
 
-  - { platform: gpio, id: M05_R01, name: M05_R01, pin: { worm_relay: wrl, addr: "0101", number: 1 } }
-  - { platform: gpio, id: M05_R02, name: M05_R02, pin: { worm_relay: wrl, addr: "0101", number: 2 } }
-  - { platform: gpio, id: M05_R03, name: M05_R03, pin: { worm_relay: wrl, addr: "0101", number: 3 } }
-  - { platform: gpio, id: M05_R04, name: M05_R04, pin: { worm_relay: wrl, addr: "0101", number: 4 } }
-  - { platform: gpio, id: M05_R05, name: M05_R05, pin: { worm_relay: wrl, addr: "0101", number: 5 } }
-  - { platform: gpio, id: M05_R06, name: M05_R06, pin: { worm_relay: wrl, addr: "0101", number: 6 } }
-  - { platform: gpio, id: M05_R07, name: M05_R07, pin: { worm_relay: wrl, addr: "0101", number: 7 } }
-  - { platform: gpio, id: M05_R08, name: M05_R08, pin: { worm_relay: wrl, addr: "0101", number: 8 } }
-  - { platform: gpio, id: M05_R09, name: M05_R09, pin: { worm_relay: wrl, addr: "0101", number: 9 } }
-  - { platform: gpio, id: M05_R10, name: M05_R10, pin: { worm_relay: wrl, addr: "0101", number: 10 } }
-  - { platform: gpio, id: M05_R11, name: M05_R11, pin: { worm_relay: wrl, addr: "0101", number: 11 } }
-  - { platform: gpio, id: M05_R12, name: M05_R12, pin: { worm_relay: wrl, addr: "0101", number: 12 } }
-  - { platform: gpio, id: M05_R13, name: M05_R13, pin: { worm_relay: wrl, addr: "0101", number: 13 } }
-  - { platform: gpio, id: M05_R14, name: M05_R14, pin: { worm_relay: wrl, addr: "0101", number: 14 } }
-  - { platform: gpio, id: M05_R15, name: M05_R15, pin: { worm_relay: wrl, addr: "0101", number: 15 } }
+  - { platform: gpio, id: M05_R01, name: M05_R01, pin: { worm_relay: wrl, addr: "0101", number:  1 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M05_R02, name: M05_R02, pin: { worm_relay: wrl, addr: "0101", number:  2 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M05_R03, name: M05_R03, pin: { worm_relay: wrl, addr: "0101", number:  3 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M05_R04, name: M05_R04, pin: { worm_relay: wrl, addr: "0101", number:  4 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M05_R05, name: M05_R05, pin: { worm_relay: wrl, addr: "0101", number:  5 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M05_R06, name: M05_R06, pin: { worm_relay: wrl, addr: "0101", number:  6 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M05_R07, name: M05_R07, pin: { worm_relay: wrl, addr: "0101", number:  7 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M05_R08, name: M05_R08, pin: { worm_relay: wrl, addr: "0101", number:  8 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M05_R09, name: M05_R09, pin: { worm_relay: wrl, addr: "0101", number:  9 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M05_R10, name: M05_R10, pin: { worm_relay: wrl, addr: "0101", number: 10 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M05_R11, name: M05_R11, pin: { worm_relay: wrl, addr: "0101", number: 11 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M05_R12, name: M05_R12, pin: { worm_relay: wrl, addr: "0101", number: 12 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M05_R13, name: M05_R13, pin: { worm_relay: wrl, addr: "0101", number: 13 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M05_R14, name: M05_R14, pin: { worm_relay: wrl, addr: "0101", number: 14 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M05_R15, name: M05_R15, pin: { worm_relay: wrl, addr: "0101", number: 15 }, restore_mode: RESTORE_DEFAULT_OFF }
 
-  - { platform: gpio, id: M06_R01, name: M06_R01, pin: { worm_relay: wrl, addr: "0110", number: 1 } }
-  - { platform: gpio, id: M06_R02, name: M06_R02, pin: { worm_relay: wrl, addr: "0110", number: 2 } }
-  - { platform: gpio, id: M06_R03, name: M06_R03, pin: { worm_relay: wrl, addr: "0110", number: 3 } }
-  - { platform: gpio, id: M06_R04, name: M06_R04, pin: { worm_relay: wrl, addr: "0110", number: 4 } }
-  - { platform: gpio, id: M06_R05, name: M06_R05, pin: { worm_relay: wrl, addr: "0110", number: 5 } }
-  - { platform: gpio, id: M06_R06, name: M06_R06, pin: { worm_relay: wrl, addr: "0110", number: 6 } }
-  - { platform: gpio, id: M06_R07, name: M06_R07, pin: { worm_relay: wrl, addr: "0110", number: 7 } }
-  - { platform: gpio, id: M06_R08, name: M06_R08, pin: { worm_relay: wrl, addr: "0110", number: 8 } }
-  - { platform: gpio, id: M06_R09, name: M06_R09, pin: { worm_relay: wrl, addr: "0110", number: 9 } }
-  - { platform: gpio, id: M06_R10, name: M06_R10, pin: { worm_relay: wrl, addr: "0110", number: 10 } }
-  - { platform: gpio, id: M06_R11, name: M06_R11, pin: { worm_relay: wrl, addr: "0110", number: 11 } }
-  - { platform: gpio, id: M06_R12, name: M06_R12, pin: { worm_relay: wrl, addr: "0110", number: 12 } }
-  - { platform: gpio, id: M06_R13, name: M06_R13, pin: { worm_relay: wrl, addr: "0110", number: 13 } }
-  - { platform: gpio, id: M06_R14, name: M06_R14, pin: { worm_relay: wrl, addr: "0110", number: 14 } }
-  - { platform: gpio, id: M06_R15, name: M06_R15, pin: { worm_relay: wrl, addr: "0110", number: 15 } }
+  - { platform: gpio, id: M06_R01, name: M06_R01, pin: { worm_relay: wrl, addr: "0110", number:  1 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M06_R02, name: M06_R02, pin: { worm_relay: wrl, addr: "0110", number:  2 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M06_R03, name: M06_R03, pin: { worm_relay: wrl, addr: "0110", number:  3 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M06_R04, name: M06_R04, pin: { worm_relay: wrl, addr: "0110", number:  4 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M06_R05, name: M06_R05, pin: { worm_relay: wrl, addr: "0110", number:  5 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M06_R06, name: M06_R06, pin: { worm_relay: wrl, addr: "0110", number:  6 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M06_R07, name: M06_R07, pin: { worm_relay: wrl, addr: "0110", number:  7 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M06_R08, name: M06_R08, pin: { worm_relay: wrl, addr: "0110", number:  8 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M06_R09, name: M06_R09, pin: { worm_relay: wrl, addr: "0110", number:  9 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M06_R10, name: M06_R10, pin: { worm_relay: wrl, addr: "0110", number: 10 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M06_R11, name: M06_R11, pin: { worm_relay: wrl, addr: "0110", number: 11 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M06_R12, name: M06_R12, pin: { worm_relay: wrl, addr: "0110", number: 12 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M06_R13, name: M06_R13, pin: { worm_relay: wrl, addr: "0110", number: 13 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M06_R14, name: M06_R14, pin: { worm_relay: wrl, addr: "0110", number: 14 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M06_R15, name: M06_R15, pin: { worm_relay: wrl, addr: "0110", number: 15 }, restore_mode: RESTORE_DEFAULT_OFF }
 
-  - { platform: gpio, id: M07_R01, name: M07_R01, pin: { worm_relay: wrl, addr: "0111", number: 1 } }
-  - { platform: gpio, id: M07_R02, name: M07_R02, pin: { worm_relay: wrl, addr: "0111", number: 2 } }
-  - { platform: gpio, id: M07_R03, name: M07_R03, pin: { worm_relay: wrl, addr: "0111", number: 3 } }
-  - { platform: gpio, id: M07_R04, name: M07_R04, pin: { worm_relay: wrl, addr: "0111", number: 4 } }
-  - { platform: gpio, id: M07_R05, name: M07_R05, pin: { worm_relay: wrl, addr: "0111", number: 5 } }
-  - { platform: gpio, id: M07_R06, name: M07_R06, pin: { worm_relay: wrl, addr: "0111", number: 6 } }
-  - { platform: gpio, id: M07_R07, name: M07_R07, pin: { worm_relay: wrl, addr: "0111", number: 7 } }
-  - { platform: gpio, id: M07_R08, name: M07_R08, pin: { worm_relay: wrl, addr: "0111", number: 8 } }
-  - { platform: gpio, id: M07_R09, name: M07_R09, pin: { worm_relay: wrl, addr: "0111", number: 9 } }
-  - { platform: gpio, id: M07_R10, name: M07_R10, pin: { worm_relay: wrl, addr: "0111", number: 10 } }
-  - { platform: gpio, id: M07_R11, name: M07_R11, pin: { worm_relay: wrl, addr: "0111", number: 11 } }
-  - { platform: gpio, id: M07_R12, name: M07_R12, pin: { worm_relay: wrl, addr: "0111", number: 12 } }
-  - { platform: gpio, id: M07_R13, name: M07_R13, pin: { worm_relay: wrl, addr: "0111", number: 13 } }
-  - { platform: gpio, id: M07_R14, name: M07_R14, pin: { worm_relay: wrl, addr: "0111", number: 14 } }
-  - { platform: gpio, id: M07_R15, name: M07_R15, pin: { worm_relay: wrl, addr: "0111", number: 15 } }
+  - { platform: gpio, id: M07_R01, name: M07_R01, pin: { worm_relay: wrl, addr: "0111", number:  1 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M07_R02, name: M07_R02, pin: { worm_relay: wrl, addr: "0111", number:  2 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M07_R03, name: M07_R03, pin: { worm_relay: wrl, addr: "0111", number:  3 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M07_R04, name: M07_R04, pin: { worm_relay: wrl, addr: "0111", number:  4 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M07_R05, name: M07_R05, pin: { worm_relay: wrl, addr: "0111", number:  5 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M07_R06, name: M07_R06, pin: { worm_relay: wrl, addr: "0111", number:  6 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M07_R07, name: M07_R07, pin: { worm_relay: wrl, addr: "0111", number:  7 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M07_R08, name: M07_R08, pin: { worm_relay: wrl, addr: "0111", number:  8 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M07_R09, name: M07_R09, pin: { worm_relay: wrl, addr: "0111", number:  9 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M07_R10, name: M07_R10, pin: { worm_relay: wrl, addr: "0111", number: 10 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M07_R11, name: M07_R11, pin: { worm_relay: wrl, addr: "0111", number: 11 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M07_R12, name: M07_R12, pin: { worm_relay: wrl, addr: "0111", number: 12 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M07_R13, name: M07_R13, pin: { worm_relay: wrl, addr: "0111", number: 13 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M07_R14, name: M07_R14, pin: { worm_relay: wrl, addr: "0111", number: 14 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M07_R15, name: M07_R15, pin: { worm_relay: wrl, addr: "0111", number: 15 }, restore_mode: RESTORE_DEFAULT_OFF }
 
-  - { platform: gpio, id: M08_R01, name: M08_R01, pin: { worm_relay: wrl, addr: "1000", number: 1 } }
-  - { platform: gpio, id: M08_R02, name: M08_R02, pin: { worm_relay: wrl, addr: "1000", number: 2 } }
-  - { platform: gpio, id: M08_R03, name: M08_R03, pin: { worm_relay: wrl, addr: "1000", number: 3 } }
-  - { platform: gpio, id: M08_R04, name: M08_R04, pin: { worm_relay: wrl, addr: "1000", number: 4 } }
-  - { platform: gpio, id: M08_R05, name: M08_R05, pin: { worm_relay: wrl, addr: "1000", number: 5 } }
-  - { platform: gpio, id: M08_R06, name: M08_R06, pin: { worm_relay: wrl, addr: "1000", number: 6 } }
-  - { platform: gpio, id: M08_R07, name: M08_R07, pin: { worm_relay: wrl, addr: "1000", number: 7 } }
-  - { platform: gpio, id: M08_R08, name: M08_R08, pin: { worm_relay: wrl, addr: "1000", number: 8 } }
-  - { platform: gpio, id: M08_R09, name: M08_R09, pin: { worm_relay: wrl, addr: "1000", number: 9 } }
-  - { platform: gpio, id: M08_R10, name: M08_R10, pin: { worm_relay: wrl, addr: "1000", number: 10 } }
-  - { platform: gpio, id: M08_R11, name: M08_R11, pin: { worm_relay: wrl, addr: "1000", number: 11 } }
-  - { platform: gpio, id: M08_R12, name: M08_R12, pin: { worm_relay: wrl, addr: "1000", number: 12 } }
-  - { platform: gpio, id: M08_R13, name: M08_R13, pin: { worm_relay: wrl, addr: "1000", number: 13 } }
-  - { platform: gpio, id: M08_R14, name: M08_R14, pin: { worm_relay: wrl, addr: "1000", number: 14 } }
-  - { platform: gpio, id: M08_R15, name: M08_R15, pin: { worm_relay: wrl, addr: "1000", number: 15 } }
+  - { platform: gpio, id: M08_R01, name: M08_R01, pin: { worm_relay: wrl, addr: "1000", number:  1 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M08_R02, name: M08_R02, pin: { worm_relay: wrl, addr: "1000", number:  2 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M08_R03, name: M08_R03, pin: { worm_relay: wrl, addr: "1000", number:  3 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M08_R04, name: M08_R04, pin: { worm_relay: wrl, addr: "1000", number:  4 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M08_R05, name: M08_R05, pin: { worm_relay: wrl, addr: "1000", number:  5 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M08_R06, name: M08_R06, pin: { worm_relay: wrl, addr: "1000", number:  6 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M08_R07, name: M08_R07, pin: { worm_relay: wrl, addr: "1000", number:  7 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M08_R08, name: M08_R08, pin: { worm_relay: wrl, addr: "1000", number:  8 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M08_R09, name: M08_R09, pin: { worm_relay: wrl, addr: "1000", number:  9 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M08_R10, name: M08_R10, pin: { worm_relay: wrl, addr: "1000", number: 10 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M08_R11, name: M08_R11, pin: { worm_relay: wrl, addr: "1000", number: 11 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M08_R12, name: M08_R12, pin: { worm_relay: wrl, addr: "1000", number: 12 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M08_R13, name: M08_R13, pin: { worm_relay: wrl, addr: "1000", number: 13 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M08_R14, name: M08_R14, pin: { worm_relay: wrl, addr: "1000", number: 14 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M08_R15, name: M08_R15, pin: { worm_relay: wrl, addr: "1000", number: 15 }, restore_mode: RESTORE_DEFAULT_OFF }
 
-  - { platform: gpio, id: M9_R01, name: M9_R01, pin: { worm_relay: wrl, addr: "1001", number: 1 } }
-  - { platform: gpio, id: M9_R02, name: M9_R02, pin: { worm_relay: wrl, addr: "1001", number: 2 } }
-  - { platform: gpio, id: M9_R03, name: M9_R03, pin: { worm_relay: wrl, addr: "1001", number: 3 } }
-  - { platform: gpio, id: M9_R04, name: M9_R04, pin: { worm_relay: wrl, addr: "1001", number: 4 } }
-  - { platform: gpio, id: M9_R05, name: M9_R05, pin: { worm_relay: wrl, addr: "1001", number: 5 } }
-  - { platform: gpio, id: M9_R06, name: M9_R06, pin: { worm_relay: wrl, addr: "1001", number: 6 } }
-  - { platform: gpio, id: M9_R07, name: M9_R07, pin: { worm_relay: wrl, addr: "1001", number: 7 } }
-  - { platform: gpio, id: M9_R08, name: M9_R08, pin: { worm_relay: wrl, addr: "1001", number: 8 } }
-  - { platform: gpio, id: M9_R09, name: M9_R09, pin: { worm_relay: wrl, addr: "1001", number: 9 } }
-  - { platform: gpio, id: M9_R10, name: M9_R10, pin: { worm_relay: wrl, addr: "1001", number: 10 } }
-  - { platform: gpio, id: M9_R11, name: M9_R11, pin: { worm_relay: wrl, addr: "1001", number: 11 } }
-  - { platform: gpio, id: M9_R12, name: M9_R12, pin: { worm_relay: wrl, addr: "1001", number: 12 } }
-  - { platform: gpio, id: M9_R13, name: M9_R13, pin: { worm_relay: wrl, addr: "1001", number: 13 } }
-  - { platform: gpio, id: M9_R14, name: M9_R14, pin: { worm_relay: wrl, addr: "1001", number: 14 } }
-  - { platform: gpio, id: M9_R15, name: M9_R15, pin: { worm_relay: wrl, addr: "1001", number: 15 } }
+  - { platform: gpio, id: M09_R01, name: M09_R01, pin: { worm_relay: wrl, addr: "1001", number:  1 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M09_R02, name: M09_R02, pin: { worm_relay: wrl, addr: "1001", number:  2 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M09_R03, name: M09_R03, pin: { worm_relay: wrl, addr: "1001", number:  3 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M09_R04, name: M09_R04, pin: { worm_relay: wrl, addr: "1001", number:  4 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M09_R05, name: M09_R05, pin: { worm_relay: wrl, addr: "1001", number:  5 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M09_R06, name: M09_R06, pin: { worm_relay: wrl, addr: "1001", number:  6 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M09_R07, name: M09_R07, pin: { worm_relay: wrl, addr: "1001", number:  7 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M09_R08, name: M09_R08, pin: { worm_relay: wrl, addr: "1001", number:  8 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M09_R09, name: M09_R09, pin: { worm_relay: wrl, addr: "1001", number:  9 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M09_R10, name: M09_R10, pin: { worm_relay: wrl, addr: "1001", number: 10 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M09_R11, name: M09_R11, pin: { worm_relay: wrl, addr: "1001", number: 11 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M09_R12, name: M09_R12, pin: { worm_relay: wrl, addr: "1001", number: 12 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M09_R13, name: M09_R13, pin: { worm_relay: wrl, addr: "1001", number: 13 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M09_R14, name: M09_R14, pin: { worm_relay: wrl, addr: "1001", number: 14 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M09_R15, name: M09_R15, pin: { worm_relay: wrl, addr: "1001", number: 15 }, restore_mode: RESTORE_DEFAULT_OFF }
 
-  - { platform: gpio, id: M10_R01, name: M10_R01, pin: { worm_relay: wrl, addr: "1010", number: 1 } }
-  - { platform: gpio, id: M10_R02, name: M10_R02, pin: { worm_relay: wrl, addr: "1010", number: 2 } }
-  - { platform: gpio, id: M10_R03, name: M10_R03, pin: { worm_relay: wrl, addr: "1010", number: 3 } }
-  - { platform: gpio, id: M10_R04, name: M10_R04, pin: { worm_relay: wrl, addr: "1010", number: 4 } }
-  - { platform: gpio, id: M10_R05, name: M10_R05, pin: { worm_relay: wrl, addr: "1010", number: 5 } }
-  - { platform: gpio, id: M10_R06, name: M10_R06, pin: { worm_relay: wrl, addr: "1010", number: 6 } }
-  - { platform: gpio, id: M10_R07, name: M10_R07, pin: { worm_relay: wrl, addr: "1010", number: 7 } }
-  - { platform: gpio, id: M10_R08, name: M10_R08, pin: { worm_relay: wrl, addr: "1010", number: 8 } }
-  - { platform: gpio, id: M10_R09, name: M10_R09, pin: { worm_relay: wrl, addr: "1010", number: 9 } }
-  - { platform: gpio, id: M10_R10, name: M10_R10, pin: { worm_relay: wrl, addr: "1010", number: 10 } }
-  - { platform: gpio, id: M10_R11, name: M10_R11, pin: { worm_relay: wrl, addr: "1010", number: 11 } }
-  - { platform: gpio, id: M10_R12, name: M10_R12, pin: { worm_relay: wrl, addr: "1010", number: 12 } }
-  - { platform: gpio, id: M10_R13, name: M10_R13, pin: { worm_relay: wrl, addr: "1010", number: 13 } }
-  - { platform: gpio, id: M10_R14, name: M10_R14, pin: { worm_relay: wrl, addr: "1010", number: 14 } }
-  - { platform: gpio, id: M10_R15, name: M10_R15, pin: { worm_relay: wrl, addr: "1010", number: 15 } }
+  - { platform: gpio, id: M10_R01, name: M10_R01, pin: { worm_relay: wrl, addr: "1010", number:  1 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M10_R02, name: M10_R02, pin: { worm_relay: wrl, addr: "1010", number:  2 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M10_R03, name: M10_R03, pin: { worm_relay: wrl, addr: "1010", number:  3 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M10_R04, name: M10_R04, pin: { worm_relay: wrl, addr: "1010", number:  4 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M10_R05, name: M10_R05, pin: { worm_relay: wrl, addr: "1010", number:  5 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M10_R06, name: M10_R06, pin: { worm_relay: wrl, addr: "1010", number:  6 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M10_R07, name: M10_R07, pin: { worm_relay: wrl, addr: "1010", number:  7 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M10_R08, name: M10_R08, pin: { worm_relay: wrl, addr: "1010", number:  8 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M10_R09, name: M10_R09, pin: { worm_relay: wrl, addr: "1010", number:  9 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M10_R10, name: M10_R10, pin: { worm_relay: wrl, addr: "1010", number: 10 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M10_R11, name: M10_R11, pin: { worm_relay: wrl, addr: "1010", number: 11 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M10_R12, name: M10_R12, pin: { worm_relay: wrl, addr: "1010", number: 12 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M10_R13, name: M10_R13, pin: { worm_relay: wrl, addr: "1010", number: 13 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M10_R14, name: M10_R14, pin: { worm_relay: wrl, addr: "1010", number: 14 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M10_R15, name: M10_R15, pin: { worm_relay: wrl, addr: "1010", number: 15 }, restore_mode: RESTORE_DEFAULT_OFF }
 
-  - { platform: gpio, id: M11_R01, name: M11_R01, pin: { worm_relay: wrl, addr: "1011", number: 1 } }
-  - { platform: gpio, id: M11_R02, name: M11_R02, pin: { worm_relay: wrl, addr: "1011", number: 2 } }
-  - { platform: gpio, id: M11_R03, name: M11_R03, pin: { worm_relay: wrl, addr: "1011", number: 3 } }
-  - { platform: gpio, id: M11_R04, name: M11_R04, pin: { worm_relay: wrl, addr: "1011", number: 4 } }
-  - { platform: gpio, id: M11_R05, name: M11_R05, pin: { worm_relay: wrl, addr: "1011", number: 5 } }
-  - { platform: gpio, id: M11_R06, name: M11_R06, pin: { worm_relay: wrl, addr: "1011", number: 6 } }
-  - { platform: gpio, id: M11_R07, name: M11_R07, pin: { worm_relay: wrl, addr: "1011", number: 7 } }
-  - { platform: gpio, id: M11_R08, name: M11_R08, pin: { worm_relay: wrl, addr: "1011", number: 8 } }
-  - { platform: gpio, id: M11_R09, name: M11_R09, pin: { worm_relay: wrl, addr: "1011", number: 9 } }
-  - { platform: gpio, id: M11_R10, name: M11_R10, pin: { worm_relay: wrl, addr: "1011", number: 10 } }
-  - { platform: gpio, id: M11_R11, name: M11_R11, pin: { worm_relay: wrl, addr: "1011", number: 11 } }
-  - { platform: gpio, id: M11_R12, name: M11_R12, pin: { worm_relay: wrl, addr: "1011", number: 12 } }
-  - { platform: gpio, id: M11_R13, name: M11_R13, pin: { worm_relay: wrl, addr: "1011", number: 13 } }
-  - { platform: gpio, id: M11_R14, name: M11_R14, pin: { worm_relay: wrl, addr: "1011", number: 14 } }
-  - { platform: gpio, id: M11_R15, name: M11_R15, pin: { worm_relay: wrl, addr: "1011", number: 15 } }
+  - { platform: gpio, id: M11_R01, name: M11_R01, pin: { worm_relay: wrl, addr: "1011", number:  1 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M11_R02, name: M11_R02, pin: { worm_relay: wrl, addr: "1011", number:  2 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M11_R03, name: M11_R03, pin: { worm_relay: wrl, addr: "1011", number:  3 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M11_R04, name: M11_R04, pin: { worm_relay: wrl, addr: "1011", number:  4 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M11_R05, name: M11_R05, pin: { worm_relay: wrl, addr: "1011", number:  5 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M11_R06, name: M11_R06, pin: { worm_relay: wrl, addr: "1011", number:  6 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M11_R07, name: M11_R07, pin: { worm_relay: wrl, addr: "1011", number:  7 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M11_R08, name: M11_R08, pin: { worm_relay: wrl, addr: "1011", number:  8 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M11_R09, name: M11_R09, pin: { worm_relay: wrl, addr: "1011", number:  9 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M11_R10, name: M11_R10, pin: { worm_relay: wrl, addr: "1011", number: 10 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M11_R11, name: M11_R11, pin: { worm_relay: wrl, addr: "1011", number: 11 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M11_R12, name: M11_R12, pin: { worm_relay: wrl, addr: "1011", number: 12 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M11_R13, name: M11_R13, pin: { worm_relay: wrl, addr: "1011", number: 13 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M11_R14, name: M11_R14, pin: { worm_relay: wrl, addr: "1011", number: 14 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M11_R15, name: M11_R15, pin: { worm_relay: wrl, addr: "1011", number: 15 }, restore_mode: RESTORE_DEFAULT_OFF }
 
-  - { platform: gpio, id: M12_R01, name: M12_R01, pin: { worm_relay: wrl, addr: "1100", number: 1 } }
-  - { platform: gpio, id: M12_R02, name: M12_R02, pin: { worm_relay: wrl, addr: "1100", number: 2 } }
-  - { platform: gpio, id: M12_R03, name: M12_R03, pin: { worm_relay: wrl, addr: "1100", number: 3 } }
-  - { platform: gpio, id: M12_R04, name: M12_R04, pin: { worm_relay: wrl, addr: "1100", number: 4 } }
-  - { platform: gpio, id: M12_R05, name: M12_R05, pin: { worm_relay: wrl, addr: "1100", number: 5 } }
-  - { platform: gpio, id: M12_R06, name: M12_R06, pin: { worm_relay: wrl, addr: "1100", number: 6 } }
-  - { platform: gpio, id: M12_R07, name: M12_R07, pin: { worm_relay: wrl, addr: "1100", number: 7 } }
-  - { platform: gpio, id: M12_R08, name: M12_R08, pin: { worm_relay: wrl, addr: "1100", number: 8 } }
-  - { platform: gpio, id: M12_R09, name: M12_R09, pin: { worm_relay: wrl, addr: "1100", number: 9 } }
-  - { platform: gpio, id: M12_R10, name: M12_R10, pin: { worm_relay: wrl, addr: "1100", number: 10 } }
-  - { platform: gpio, id: M12_R11, name: M12_R11, pin: { worm_relay: wrl, addr: "1100", number: 11 } }
-  - { platform: gpio, id: M12_R12, name: M12_R12, pin: { worm_relay: wrl, addr: "1100", number: 12 } }
-  - { platform: gpio, id: M12_R13, name: M12_R13, pin: { worm_relay: wrl, addr: "1100", number: 13 } }
-  - { platform: gpio, id: M12_R14, name: M12_R14, pin: { worm_relay: wrl, addr: "1100", number: 14 } }
-  - { platform: gpio, id: M12_R15, name: M12_R15, pin: { worm_relay: wrl, addr: "1100", number: 15 } }
+  - { platform: gpio, id: M12_R01, name: M12_R01, pin: { worm_relay: wrl, addr: "1100", number:  1 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M12_R02, name: M12_R02, pin: { worm_relay: wrl, addr: "1100", number:  2 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M12_R03, name: M12_R03, pin: { worm_relay: wrl, addr: "1100", number:  3 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M12_R04, name: M12_R04, pin: { worm_relay: wrl, addr: "1100", number:  4 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M12_R05, name: M12_R05, pin: { worm_relay: wrl, addr: "1100", number:  5 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M12_R06, name: M12_R06, pin: { worm_relay: wrl, addr: "1100", number:  6 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M12_R07, name: M12_R07, pin: { worm_relay: wrl, addr: "1100", number:  7 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M12_R08, name: M12_R08, pin: { worm_relay: wrl, addr: "1100", number:  8 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M12_R09, name: M12_R09, pin: { worm_relay: wrl, addr: "1100", number:  9 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M12_R10, name: M12_R10, pin: { worm_relay: wrl, addr: "1100", number: 10 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M12_R11, name: M12_R11, pin: { worm_relay: wrl, addr: "1100", number: 11 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M12_R12, name: M12_R12, pin: { worm_relay: wrl, addr: "1100", number: 12 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M12_R13, name: M12_R13, pin: { worm_relay: wrl, addr: "1100", number: 13 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M12_R14, name: M12_R14, pin: { worm_relay: wrl, addr: "1100", number: 14 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M12_R15, name: M12_R15, pin: { worm_relay: wrl, addr: "1100", number: 15 }, restore_mode: RESTORE_DEFAULT_OFF }
 
-  - { platform: gpio, id: M13_R01, name: M13_R01, pin: { worm_relay: wrl, addr: "1101", number: 1 } }
-  - { platform: gpio, id: M13_R02, name: M13_R02, pin: { worm_relay: wrl, addr: "1101", number: 2 } }
-  - { platform: gpio, id: M13_R03, name: M13_R03, pin: { worm_relay: wrl, addr: "1101", number: 3 } }
-  - { platform: gpio, id: M13_R04, name: M13_R04, pin: { worm_relay: wrl, addr: "1101", number: 4 } }
-  - { platform: gpio, id: M13_R05, name: M13_R05, pin: { worm_relay: wrl, addr: "1101", number: 5 } }
-  - { platform: gpio, id: M13_R06, name: M13_R06, pin: { worm_relay: wrl, addr: "1101", number: 6 } }
-  - { platform: gpio, id: M13_R07, name: M13_R07, pin: { worm_relay: wrl, addr: "1101", number: 7 } }
-  - { platform: gpio, id: M13_R08, name: M13_R08, pin: { worm_relay: wrl, addr: "1101", number: 8 } }
-  - { platform: gpio, id: M13_R09, name: M13_R09, pin: { worm_relay: wrl, addr: "1101", number: 9 } }
-  - { platform: gpio, id: M13_R10, name: M13_R10, pin: { worm_relay: wrl, addr: "1101", number: 10 } }
-  - { platform: gpio, id: M13_R11, name: M13_R11, pin: { worm_relay: wrl, addr: "1101", number: 11 } }
-  - { platform: gpio, id: M13_R12, name: M13_R12, pin: { worm_relay: wrl, addr: "1101", number: 12 } }
-  - { platform: gpio, id: M13_R13, name: M13_R13, pin: { worm_relay: wrl, addr: "1101", number: 13 } }
-  - { platform: gpio, id: M13_R14, name: M13_R14, pin: { worm_relay: wrl, addr: "1101", number: 14 } }
-  - { platform: gpio, id: M13_R15, name: M13_R15, pin: { worm_relay: wrl, addr: "1101", number: 15 } }
+  - { platform: gpio, id: M13_R01, name: M13_R01, pin: { worm_relay: wrl, addr: "1101", number:  1 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M13_R02, name: M13_R02, pin: { worm_relay: wrl, addr: "1101", number:  2 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M13_R03, name: M13_R03, pin: { worm_relay: wrl, addr: "1101", number:  3 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M13_R04, name: M13_R04, pin: { worm_relay: wrl, addr: "1101", number:  4 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M13_R05, name: M13_R05, pin: { worm_relay: wrl, addr: "1101", number:  5 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M13_R06, name: M13_R06, pin: { worm_relay: wrl, addr: "1101", number:  6 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M13_R07, name: M13_R07, pin: { worm_relay: wrl, addr: "1101", number:  7 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M13_R08, name: M13_R08, pin: { worm_relay: wrl, addr: "1101", number:  8 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M13_R09, name: M13_R09, pin: { worm_relay: wrl, addr: "1101", number:  9 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M13_R10, name: M13_R10, pin: { worm_relay: wrl, addr: "1101", number: 10 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M13_R11, name: M13_R11, pin: { worm_relay: wrl, addr: "1101", number: 11 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M13_R12, name: M13_R12, pin: { worm_relay: wrl, addr: "1101", number: 12 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M13_R13, name: M13_R13, pin: { worm_relay: wrl, addr: "1101", number: 13 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M13_R14, name: M13_R14, pin: { worm_relay: wrl, addr: "1101", number: 14 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M13_R15, name: M13_R15, pin: { worm_relay: wrl, addr: "1101", number: 15 }, restore_mode: RESTORE_DEFAULT_OFF }
 
-  - { platform: gpio, id: M14_R01, name: M14_R01, pin: { worm_relay: wrl, addr: "1110", number: 1 } }
-  - { platform: gpio, id: M14_R02, name: M14_R02, pin: { worm_relay: wrl, addr: "1110", number: 2 } }
-  - { platform: gpio, id: M14_R03, name: M14_R03, pin: { worm_relay: wrl, addr: "1110", number: 3 } }
-  - { platform: gpio, id: M14_R04, name: M14_R04, pin: { worm_relay: wrl, addr: "1110", number: 4 } }
-  - { platform: gpio, id: M14_R05, name: M14_R05, pin: { worm_relay: wrl, addr: "1110", number: 5 } }
-  - { platform: gpio, id: M14_R06, name: M14_R06, pin: { worm_relay: wrl, addr: "1110", number: 6 } }
-  - { platform: gpio, id: M14_R07, name: M14_R07, pin: { worm_relay: wrl, addr: "1110", number: 7 } }
-  - { platform: gpio, id: M14_R08, name: M14_R08, pin: { worm_relay: wrl, addr: "1110", number: 8 } }
-  - { platform: gpio, id: M14_R09, name: M14_R09, pin: { worm_relay: wrl, addr: "1110", number: 9 } }
-  - { platform: gpio, id: M14_R10, name: M14_R10, pin: { worm_relay: wrl, addr: "1110", number: 10 } }
-  - { platform: gpio, id: M14_R11, name: M14_R11, pin: { worm_relay: wrl, addr: "1110", number: 11 } }
-  - { platform: gpio, id: M14_R12, name: M14_R12, pin: { worm_relay: wrl, addr: "1110", number: 12 } }
-  - { platform: gpio, id: M14_R13, name: M14_R13, pin: { worm_relay: wrl, addr: "1110", number: 13 } }
-  - { platform: gpio, id: M14_R14, name: M14_R14, pin: { worm_relay: wrl, addr: "1110", number: 14 } }
-  - { platform: gpio, id: M14_R15, name: M14_R15, pin: { worm_relay: wrl, addr: "1110", number: 15 } }
+  - { platform: gpio, id: M14_R01, name: M14_R01, pin: { worm_relay: wrl, addr: "1110", number:  1 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M14_R02, name: M14_R02, pin: { worm_relay: wrl, addr: "1110", number:  2 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M14_R03, name: M14_R03, pin: { worm_relay: wrl, addr: "1110", number:  3 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M14_R04, name: M14_R04, pin: { worm_relay: wrl, addr: "1110", number:  4 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M14_R05, name: M14_R05, pin: { worm_relay: wrl, addr: "1110", number:  5 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M14_R06, name: M14_R06, pin: { worm_relay: wrl, addr: "1110", number:  6 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M14_R07, name: M14_R07, pin: { worm_relay: wrl, addr: "1110", number:  7 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M14_R08, name: M14_R08, pin: { worm_relay: wrl, addr: "1110", number:  8 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M14_R09, name: M14_R09, pin: { worm_relay: wrl, addr: "1110", number:  9 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M14_R10, name: M14_R10, pin: { worm_relay: wrl, addr: "1110", number: 10 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M14_R11, name: M14_R11, pin: { worm_relay: wrl, addr: "1110", number: 11 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M14_R12, name: M14_R12, pin: { worm_relay: wrl, addr: "1110", number: 12 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M14_R13, name: M14_R13, pin: { worm_relay: wrl, addr: "1110", number: 13 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M14_R14, name: M14_R14, pin: { worm_relay: wrl, addr: "1110", number: 14 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M14_R15, name: M14_R15, pin: { worm_relay: wrl, addr: "1110", number: 15 }, restore_mode: RESTORE_DEFAULT_OFF }
 
-  - { platform: gpio, id: M15_R01, name: M15_R01, pin: { worm_relay: wrl, addr: "1111", number: 1 } }
-  - { platform: gpio, id: M15_R02, name: M15_R02, pin: { worm_relay: wrl, addr: "1111", number: 2 } }
-  - { platform: gpio, id: M15_R03, name: M15_R03, pin: { worm_relay: wrl, addr: "1111", number: 3 } }
-  - { platform: gpio, id: M15_R04, name: M15_R04, pin: { worm_relay: wrl, addr: "1111", number: 4 } }
-  - { platform: gpio, id: M15_R05, name: M15_R05, pin: { worm_relay: wrl, addr: "1111", number: 5 } }
-  - { platform: gpio, id: M15_R06, name: M15_R06, pin: { worm_relay: wrl, addr: "1111", number: 6 } }
-  - { platform: gpio, id: M15_R07, name: M15_R07, pin: { worm_relay: wrl, addr: "1111", number: 7 } }
-  - { platform: gpio, id: M15_R08, name: M15_R08, pin: { worm_relay: wrl, addr: "1111", number: 8 } }
-  - { platform: gpio, id: M15_R09, name: M15_R09, pin: { worm_relay: wrl, addr: "1111", number: 9 } }
-  - { platform: gpio, id: M15_R10, name: M15_R10, pin: { worm_relay: wrl, addr: "1111", number: 10 } }
-  - { platform: gpio, id: M15_R11, name: M15_R11, pin: { worm_relay: wrl, addr: "1111", number: 11 } }
-  - { platform: gpio, id: M15_R12, name: M15_R12, pin: { worm_relay: wrl, addr: "1111", number: 12 } }
-  - { platform: gpio, id: M15_R13, name: M15_R13, pin: { worm_relay: wrl, addr: "1111", number: 13 } }
-  - { platform: gpio, id: M15_R14, name: M15_R14, pin: { worm_relay: wrl, addr: "1111", number: 14 } }
-  - { platform: gpio, id: M15_R15, name: M15_R15, pin: { worm_relay: wrl, addr: "1111", number: 15 } }
+  - { platform: gpio, id: M15_R01, name: M15_R01, pin: { worm_relay: wrl, addr: "1111", number:  1 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M15_R02, name: M15_R02, pin: { worm_relay: wrl, addr: "1111", number:  2 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M15_R03, name: M15_R03, pin: { worm_relay: wrl, addr: "1111", number:  3 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M15_R04, name: M15_R04, pin: { worm_relay: wrl, addr: "1111", number:  4 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M15_R05, name: M15_R05, pin: { worm_relay: wrl, addr: "1111", number:  5 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M15_R06, name: M15_R06, pin: { worm_relay: wrl, addr: "1111", number:  6 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M15_R07, name: M15_R07, pin: { worm_relay: wrl, addr: "1111", number:  7 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M15_R08, name: M15_R08, pin: { worm_relay: wrl, addr: "1111", number:  8 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M15_R09, name: M15_R09, pin: { worm_relay: wrl, addr: "1111", number:  9 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M15_R10, name: M15_R10, pin: { worm_relay: wrl, addr: "1111", number: 10 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M15_R11, name: M15_R11, pin: { worm_relay: wrl, addr: "1111", number: 11 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M15_R12, name: M15_R12, pin: { worm_relay: wrl, addr: "1111", number: 12 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M15_R13, name: M15_R13, pin: { worm_relay: wrl, addr: "1111", number: 13 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M15_R14, name: M15_R14, pin: { worm_relay: wrl, addr: "1111", number: 14 }, restore_mode: RESTORE_DEFAULT_OFF }
+  - { platform: gpio, id: M15_R15, name: M15_R15, pin: { worm_relay: wrl, addr: "1111", number: 15 }, restore_mode: RESTORE_DEFAULT_OFF }
 
 # Binary sensors for input modules
 binary_sensor:
-  - { platform: gpio, id: M00_IN01, name: M00_IN01, pin: { worm_input: win, addr: "0000", number: 1 } }
-  - { platform: gpio, id: M00_IN02, name: M00_IN02, pin: { worm_input: win, addr: "0000", number: 2 } }
-  - { platform: gpio, id: M00_IN03, name: M00_IN03, pin: { worm_input: win, addr: "0000", number: 3 } }
-  - { platform: gpio, id: M00_IN04, name: M00_IN04, pin: { worm_input: win, addr: "0000", number: 4 } }
-  - { platform: gpio, id: M00_IN05, name: M00_IN05, pin: { worm_input: win, addr: "0000", number: 5 } }
-  - { platform: gpio, id: M00_IN06, name: M00_IN06, pin: { worm_input: win, addr: "0000", number: 6 } }
-  - { platform: gpio, id: M00_IN07, name: M00_IN07, pin: { worm_input: win, addr: "0000", number: 7 } }
-  - { platform: gpio, id: M00_IN08, name: M00_IN08, pin: { worm_input: win, addr: "0000", number: 8 } }
-  - { platform: gpio, id: M00_IN09, name: M00_IN09, pin: { worm_input: win, addr: "0000", number: 9 } }
+  - { platform: gpio, id: M00_IN01, name: M00_IN01, pin: { worm_input: win, addr: "0000", number:  1 } }
+  - { platform: gpio, id: M00_IN02, name: M00_IN02, pin: { worm_input: win, addr: "0000", number:  2 } }
+  - { platform: gpio, id: M00_IN03, name: M00_IN03, pin: { worm_input: win, addr: "0000", number:  3 } }
+  - { platform: gpio, id: M00_IN04, name: M00_IN04, pin: { worm_input: win, addr: "0000", number:  4 } }
+  - { platform: gpio, id: M00_IN05, name: M00_IN05, pin: { worm_input: win, addr: "0000", number:  5 } }
+  - { platform: gpio, id: M00_IN06, name: M00_IN06, pin: { worm_input: win, addr: "0000", number:  6 } }
+  - { platform: gpio, id: M00_IN07, name: M00_IN07, pin: { worm_input: win, addr: "0000", number:  7 } }
+  - { platform: gpio, id: M00_IN08, name: M00_IN08, pin: { worm_input: win, addr: "0000", number:  8 } }
+  - { platform: gpio, id: M00_IN09, name: M00_IN09, pin: { worm_input: win, addr: "0000", number:  9 } }
   - { platform: gpio, id: M00_IN10, name: M00_IN10, pin: { worm_input: win, addr: "0000", number: 10 } }
   - { platform: gpio, id: M00_IN11, name: M00_IN11, pin: { worm_input: win, addr: "0000", number: 11 } }
   - { platform: gpio, id: M00_IN12, name: M00_IN12, pin: { worm_input: win, addr: "0000", number: 12 } }
@@ -305,15 +305,15 @@ binary_sensor:
   - { platform: gpio, id: M00_IN31, name: M00_IN31, pin: { worm_input: win, addr: "0000", number: 31 } }
   - { platform: gpio, id: M00_IN32, name: M00_IN32, pin: { worm_input: win, addr: "0000", number: 32 } }
 
-  - { platform: gpio, id: M01_IN01, name: M01_IN01, pin: { worm_input: win, addr: "0001", number: 1 } }
-  - { platform: gpio, id: M01_IN02, name: M01_IN02, pin: { worm_input: win, addr: "0001", number: 2 } }
-  - { platform: gpio, id: M01_IN03, name: M01_IN03, pin: { worm_input: win, addr: "0001", number: 3 } }
-  - { platform: gpio, id: M01_IN04, name: M01_IN04, pin: { worm_input: win, addr: "0001", number: 4 } }
-  - { platform: gpio, id: M01_IN05, name: M01_IN05, pin: { worm_input: win, addr: "0001", number: 5 } }
-  - { platform: gpio, id: M01_IN06, name: M01_IN06, pin: { worm_input: win, addr: "0001", number: 6 } }
-  - { platform: gpio, id: M01_IN07, name: M01_IN07, pin: { worm_input: win, addr: "0001", number: 7 } }
-  - { platform: gpio, id: M01_IN08, name: M01_IN08, pin: { worm_input: win, addr: "0001", number: 8 } }
-  - { platform: gpio, id: M01_IN09, name: M01_IN09, pin: { worm_input: win, addr: "0001", number: 9 } }
+  - { platform: gpio, id: M01_IN01, name: M01_IN01, pin: { worm_input: win, addr: "0001", number:  1 } }
+  - { platform: gpio, id: M01_IN02, name: M01_IN02, pin: { worm_input: win, addr: "0001", number:  2 } }
+  - { platform: gpio, id: M01_IN03, name: M01_IN03, pin: { worm_input: win, addr: "0001", number:  3 } }
+  - { platform: gpio, id: M01_IN04, name: M01_IN04, pin: { worm_input: win, addr: "0001", number:  4 } }
+  - { platform: gpio, id: M01_IN05, name: M01_IN05, pin: { worm_input: win, addr: "0001", number:  5 } }
+  - { platform: gpio, id: M01_IN06, name: M01_IN06, pin: { worm_input: win, addr: "0001", number:  6 } }
+  - { platform: gpio, id: M01_IN07, name: M01_IN07, pin: { worm_input: win, addr: "0001", number:  7 } }
+  - { platform: gpio, id: M01_IN08, name: M01_IN08, pin: { worm_input: win, addr: "0001", number:  8 } }
+  - { platform: gpio, id: M01_IN09, name: M01_IN09, pin: { worm_input: win, addr: "0001", number:  9 } }
   - { platform: gpio, id: M01_IN10, name: M01_IN10, pin: { worm_input: win, addr: "0001", number: 10 } }
   - { platform: gpio, id: M01_IN11, name: M01_IN11, pin: { worm_input: win, addr: "0001", number: 11 } }
   - { platform: gpio, id: M01_IN12, name: M01_IN12, pin: { worm_input: win, addr: "0001", number: 12 } }
@@ -338,15 +338,15 @@ binary_sensor:
   - { platform: gpio, id: M01_IN31, name: M01_IN31, pin: { worm_input: win, addr: "0001", number: 31 } }
   - { platform: gpio, id: M01_IN32, name: M01_IN32, pin: { worm_input: win, addr: "0001", number: 32 } }
 
-  - { platform: gpio, id: M02_IN01, name: M02_IN01, pin: { worm_input: win, addr: "0010", number: 1 } }
-  - { platform: gpio, id: M02_IN02, name: M02_IN02, pin: { worm_input: win, addr: "0010", number: 2 } }
-  - { platform: gpio, id: M02_IN03, name: M02_IN03, pin: { worm_input: win, addr: "0010", number: 3 } }
-  - { platform: gpio, id: M02_IN04, name: M02_IN04, pin: { worm_input: win, addr: "0010", number: 4 } }
-  - { platform: gpio, id: M02_IN05, name: M02_IN05, pin: { worm_input: win, addr: "0010", number: 5 } }
-  - { platform: gpio, id: M02_IN06, name: M02_IN06, pin: { worm_input: win, addr: "0010", number: 6 } }
-  - { platform: gpio, id: M02_IN07, name: M02_IN07, pin: { worm_input: win, addr: "0010", number: 7 } }
-  - { platform: gpio, id: M02_IN08, name: M02_IN08, pin: { worm_input: win, addr: "0010", number: 8 } }
-  - { platform: gpio, id: M02_IN09, name: M02_IN09, pin: { worm_input: win, addr: "0010", number: 9 } }
+  - { platform: gpio, id: M02_IN01, name: M02_IN01, pin: { worm_input: win, addr: "0010", number:  1 } }
+  - { platform: gpio, id: M02_IN02, name: M02_IN02, pin: { worm_input: win, addr: "0010", number:  2 } }
+  - { platform: gpio, id: M02_IN03, name: M02_IN03, pin: { worm_input: win, addr: "0010", number:  3 } }
+  - { platform: gpio, id: M02_IN04, name: M02_IN04, pin: { worm_input: win, addr: "0010", number:  4 } }
+  - { platform: gpio, id: M02_IN05, name: M02_IN05, pin: { worm_input: win, addr: "0010", number:  5 } }
+  - { platform: gpio, id: M02_IN06, name: M02_IN06, pin: { worm_input: win, addr: "0010", number:  6 } }
+  - { platform: gpio, id: M02_IN07, name: M02_IN07, pin: { worm_input: win, addr: "0010", number:  7 } }
+  - { platform: gpio, id: M02_IN08, name: M02_IN08, pin: { worm_input: win, addr: "0010", number:  8 } }
+  - { platform: gpio, id: M02_IN09, name: M02_IN09, pin: { worm_input: win, addr: "0010", number:  9 } }
   - { platform: gpio, id: M02_IN10, name: M02_IN10, pin: { worm_input: win, addr: "0010", number: 10 } }
   - { platform: gpio, id: M02_IN11, name: M02_IN11, pin: { worm_input: win, addr: "0010", number: 11 } }
   - { platform: gpio, id: M02_IN12, name: M02_IN12, pin: { worm_input: win, addr: "0010", number: 12 } }
@@ -371,15 +371,15 @@ binary_sensor:
   - { platform: gpio, id: M02_IN31, name: M02_IN31, pin: { worm_input: win, addr: "0010", number: 31 } }
   - { platform: gpio, id: M02_IN32, name: M02_IN32, pin: { worm_input: win, addr: "0010", number: 32 } }
 
-  - { platform: gpio, id: M03_IN01, name: M03_IN01, pin: { worm_input: win, addr: "0011", number: 1 } }
-  - { platform: gpio, id: M03_IN02, name: M03_IN02, pin: { worm_input: win, addr: "0011", number: 2 } }
-  - { platform: gpio, id: M03_IN03, name: M03_IN03, pin: { worm_input: win, addr: "0011", number: 3 } }
-  - { platform: gpio, id: M03_IN04, name: M03_IN04, pin: { worm_input: win, addr: "0011", number: 4 } }
-  - { platform: gpio, id: M03_IN05, name: M03_IN05, pin: { worm_input: win, addr: "0011", number: 5 } }
-  - { platform: gpio, id: M03_IN06, name: M03_IN06, pin: { worm_input: win, addr: "0011", number: 6 } }
-  - { platform: gpio, id: M03_IN07, name: M03_IN07, pin: { worm_input: win, addr: "0011", number: 7 } }
-  - { platform: gpio, id: M03_IN08, name: M03_IN08, pin: { worm_input: win, addr: "0011", number: 8 } }
-  - { platform: gpio, id: M03_IN09, name: M03_IN09, pin: { worm_input: win, addr: "0011", number: 9 } }
+  - { platform: gpio, id: M03_IN01, name: M03_IN01, pin: { worm_input: win, addr: "0011", number:  1 } }
+  - { platform: gpio, id: M03_IN02, name: M03_IN02, pin: { worm_input: win, addr: "0011", number:  2 } }
+  - { platform: gpio, id: M03_IN03, name: M03_IN03, pin: { worm_input: win, addr: "0011", number:  3 } }
+  - { platform: gpio, id: M03_IN04, name: M03_IN04, pin: { worm_input: win, addr: "0011", number:  4 } }
+  - { platform: gpio, id: M03_IN05, name: M03_IN05, pin: { worm_input: win, addr: "0011", number:  5 } }
+  - { platform: gpio, id: M03_IN06, name: M03_IN06, pin: { worm_input: win, addr: "0011", number:  6 } }
+  - { platform: gpio, id: M03_IN07, name: M03_IN07, pin: { worm_input: win, addr: "0011", number:  7 } }
+  - { platform: gpio, id: M03_IN08, name: M03_IN08, pin: { worm_input: win, addr: "0011", number:  8 } }
+  - { platform: gpio, id: M03_IN09, name: M03_IN09, pin: { worm_input: win, addr: "0011", number:  9 } }
   - { platform: gpio, id: M03_IN10, name: M03_IN10, pin: { worm_input: win, addr: "0011", number: 10 } }
   - { platform: gpio, id: M03_IN11, name: M03_IN11, pin: { worm_input: win, addr: "0011", number: 11 } }
   - { platform: gpio, id: M03_IN12, name: M03_IN12, pin: { worm_input: win, addr: "0011", number: 12 } }
@@ -404,15 +404,15 @@ binary_sensor:
   - { platform: gpio, id: M03_IN31, name: M03_IN31, pin: { worm_input: win, addr: "0011", number: 31 } }
   - { platform: gpio, id: M03_IN32, name: M03_IN32, pin: { worm_input: win, addr: "0011", number: 32 } }
 
-  - { platform: gpio, id: M04_IN01, name: M04_IN01, pin: { worm_input: win, addr: "0100", number: 1 } }
-  - { platform: gpio, id: M04_IN02, name: M04_IN02, pin: { worm_input: win, addr: "0100", number: 2 } }
-  - { platform: gpio, id: M04_IN03, name: M04_IN03, pin: { worm_input: win, addr: "0100", number: 3 } }
-  - { platform: gpio, id: M04_IN04, name: M04_IN04, pin: { worm_input: win, addr: "0100", number: 4 } }
-  - { platform: gpio, id: M04_IN05, name: M04_IN05, pin: { worm_input: win, addr: "0100", number: 5 } }
-  - { platform: gpio, id: M04_IN06, name: M04_IN06, pin: { worm_input: win, addr: "0100", number: 6 } }
-  - { platform: gpio, id: M04_IN07, name: M04_IN07, pin: { worm_input: win, addr: "0100", number: 7 } }
-  - { platform: gpio, id: M04_IN08, name: M04_IN08, pin: { worm_input: win, addr: "0100", number: 8 } }
-  - { platform: gpio, id: M04_IN09, name: M04_IN09, pin: { worm_input: win, addr: "0100", number: 9 } }
+  - { platform: gpio, id: M04_IN01, name: M04_IN01, pin: { worm_input: win, addr: "0100", number:  1 } }
+  - { platform: gpio, id: M04_IN02, name: M04_IN02, pin: { worm_input: win, addr: "0100", number:  2 } }
+  - { platform: gpio, id: M04_IN03, name: M04_IN03, pin: { worm_input: win, addr: "0100", number:  3 } }
+  - { platform: gpio, id: M04_IN04, name: M04_IN04, pin: { worm_input: win, addr: "0100", number:  4 } }
+  - { platform: gpio, id: M04_IN05, name: M04_IN05, pin: { worm_input: win, addr: "0100", number:  5 } }
+  - { platform: gpio, id: M04_IN06, name: M04_IN06, pin: { worm_input: win, addr: "0100", number:  6 } }
+  - { platform: gpio, id: M04_IN07, name: M04_IN07, pin: { worm_input: win, addr: "0100", number:  7 } }
+  - { platform: gpio, id: M04_IN08, name: M04_IN08, pin: { worm_input: win, addr: "0100", number:  8 } }
+  - { platform: gpio, id: M04_IN09, name: M04_IN09, pin: { worm_input: win, addr: "0100", number:  9 } }
   - { platform: gpio, id: M04_IN10, name: M04_IN10, pin: { worm_input: win, addr: "0100", number: 10 } }
   - { platform: gpio, id: M04_IN11, name: M04_IN11, pin: { worm_input: win, addr: "0100", number: 11 } }
   - { platform: gpio, id: M04_IN12, name: M04_IN12, pin: { worm_input: win, addr: "0100", number: 12 } }
@@ -437,15 +437,15 @@ binary_sensor:
   - { platform: gpio, id: M04_IN31, name: M04_IN31, pin: { worm_input: win, addr: "0100", number: 31 } }
   - { platform: gpio, id: M04_IN32, name: M04_IN32, pin: { worm_input: win, addr: "0100", number: 32 } }
 
-  - { platform: gpio, id: M05_IN01, name: M05_IN01, pin: { worm_input: win, addr: "0101", number: 1 } }
-  - { platform: gpio, id: M05_IN02, name: M05_IN02, pin: { worm_input: win, addr: "0101", number: 2 } }
-  - { platform: gpio, id: M05_IN03, name: M05_IN03, pin: { worm_input: win, addr: "0101", number: 3 } }
-  - { platform: gpio, id: M05_IN04, name: M05_IN04, pin: { worm_input: win, addr: "0101", number: 4 } }
-  - { platform: gpio, id: M05_IN05, name: M05_IN05, pin: { worm_input: win, addr: "0101", number: 5 } }
-  - { platform: gpio, id: M05_IN06, name: M05_IN06, pin: { worm_input: win, addr: "0101", number: 6 } }
-  - { platform: gpio, id: M05_IN07, name: M05_IN07, pin: { worm_input: win, addr: "0101", number: 7 } }
-  - { platform: gpio, id: M05_IN08, name: M05_IN08, pin: { worm_input: win, addr: "0101", number: 8 } }
-  - { platform: gpio, id: M05_IN09, name: M05_IN09, pin: { worm_input: win, addr: "0101", number: 9 } }
+  - { platform: gpio, id: M05_IN01, name: M05_IN01, pin: { worm_input: win, addr: "0101", number:  1 } }
+  - { platform: gpio, id: M05_IN02, name: M05_IN02, pin: { worm_input: win, addr: "0101", number:  2 } }
+  - { platform: gpio, id: M05_IN03, name: M05_IN03, pin: { worm_input: win, addr: "0101", number:  3 } }
+  - { platform: gpio, id: M05_IN04, name: M05_IN04, pin: { worm_input: win, addr: "0101", number:  4 } }
+  - { platform: gpio, id: M05_IN05, name: M05_IN05, pin: { worm_input: win, addr: "0101", number:  5 } }
+  - { platform: gpio, id: M05_IN06, name: M05_IN06, pin: { worm_input: win, addr: "0101", number:  6 } }
+  - { platform: gpio, id: M05_IN07, name: M05_IN07, pin: { worm_input: win, addr: "0101", number:  7 } }
+  - { platform: gpio, id: M05_IN08, name: M05_IN08, pin: { worm_input: win, addr: "0101", number:  8 } }
+  - { platform: gpio, id: M05_IN09, name: M05_IN09, pin: { worm_input: win, addr: "0101", number:  9 } }
   - { platform: gpio, id: M05_IN10, name: M05_IN10, pin: { worm_input: win, addr: "0101", number: 10 } }
   - { platform: gpio, id: M05_IN11, name: M05_IN11, pin: { worm_input: win, addr: "0101", number: 11 } }
   - { platform: gpio, id: M05_IN12, name: M05_IN12, pin: { worm_input: win, addr: "0101", number: 12 } }
@@ -470,15 +470,15 @@ binary_sensor:
   - { platform: gpio, id: M05_IN31, name: M05_IN31, pin: { worm_input: win, addr: "0101", number: 31 } }
   - { platform: gpio, id: M05_IN32, name: M05_IN32, pin: { worm_input: win, addr: "0101", number: 32 } }
 
-  - { platform: gpio, id: M06_IN01, name: M06_IN01, pin: { worm_input: win, addr: "0110", number: 1 } }
-  - { platform: gpio, id: M06_IN02, name: M06_IN02, pin: { worm_input: win, addr: "0110", number: 2 } }
-  - { platform: gpio, id: M06_IN03, name: M06_IN03, pin: { worm_input: win, addr: "0110", number: 3 } }
-  - { platform: gpio, id: M06_IN04, name: M06_IN04, pin: { worm_input: win, addr: "0110", number: 4 } }
-  - { platform: gpio, id: M06_IN05, name: M06_IN05, pin: { worm_input: win, addr: "0110", number: 5 } }
-  - { platform: gpio, id: M06_IN06, name: M06_IN06, pin: { worm_input: win, addr: "0110", number: 6 } }
-  - { platform: gpio, id: M06_IN07, name: M06_IN07, pin: { worm_input: win, addr: "0110", number: 7 } }
-  - { platform: gpio, id: M06_IN08, name: M06_IN08, pin: { worm_input: win, addr: "0110", number: 8 } }
-  - { platform: gpio, id: M06_IN09, name: M06_IN09, pin: { worm_input: win, addr: "0110", number: 9 } }
+  - { platform: gpio, id: M06_IN01, name: M06_IN01, pin: { worm_input: win, addr: "0110", number:  1 } }
+  - { platform: gpio, id: M06_IN02, name: M06_IN02, pin: { worm_input: win, addr: "0110", number:  2 } }
+  - { platform: gpio, id: M06_IN03, name: M06_IN03, pin: { worm_input: win, addr: "0110", number:  3 } }
+  - { platform: gpio, id: M06_IN04, name: M06_IN04, pin: { worm_input: win, addr: "0110", number:  4 } }
+  - { platform: gpio, id: M06_IN05, name: M06_IN05, pin: { worm_input: win, addr: "0110", number:  5 } }
+  - { platform: gpio, id: M06_IN06, name: M06_IN06, pin: { worm_input: win, addr: "0110", number:  6 } }
+  - { platform: gpio, id: M06_IN07, name: M06_IN07, pin: { worm_input: win, addr: "0110", number:  7 } }
+  - { platform: gpio, id: M06_IN08, name: M06_IN08, pin: { worm_input: win, addr: "0110", number:  8 } }
+  - { platform: gpio, id: M06_IN09, name: M06_IN09, pin: { worm_input: win, addr: "0110", number:  9 } }
   - { platform: gpio, id: M06_IN10, name: M06_IN10, pin: { worm_input: win, addr: "0110", number: 10 } }
   - { platform: gpio, id: M06_IN11, name: M06_IN11, pin: { worm_input: win, addr: "0110", number: 11 } }
   - { platform: gpio, id: M06_IN12, name: M06_IN12, pin: { worm_input: win, addr: "0110", number: 12 } }
@@ -503,15 +503,15 @@ binary_sensor:
   - { platform: gpio, id: M06_IN31, name: M06_IN31, pin: { worm_input: win, addr: "0110", number: 31 } }
   - { platform: gpio, id: M06_IN32, name: M06_IN32, pin: { worm_input: win, addr: "0110", number: 32 } }
 
-  - { platform: gpio, id: M07_IN01, name: M07_IN01, pin: { worm_input: win, addr: "0111", number: 1 } }
-  - { platform: gpio, id: M07_IN02, name: M07_IN02, pin: { worm_input: win, addr: "0111", number: 2 } }
-  - { platform: gpio, id: M07_IN03, name: M07_IN03, pin: { worm_input: win, addr: "0111", number: 3 } }
-  - { platform: gpio, id: M07_IN04, name: M07_IN04, pin: { worm_input: win, addr: "0111", number: 4 } }
-  - { platform: gpio, id: M07_IN05, name: M07_IN05, pin: { worm_input: win, addr: "0111", number: 5 } }
-  - { platform: gpio, id: M07_IN06, name: M07_IN06, pin: { worm_input: win, addr: "0111", number: 6 } }
-  - { platform: gpio, id: M07_IN07, name: M07_IN07, pin: { worm_input: win, addr: "0111", number: 7 } }
-  - { platform: gpio, id: M07_IN08, name: M07_IN08, pin: { worm_input: win, addr: "0111", number: 8 } }
-  - { platform: gpio, id: M07_IN09, name: M07_IN09, pin: { worm_input: win, addr: "0111", number: 9 } }
+  - { platform: gpio, id: M07_IN01, name: M07_IN01, pin: { worm_input: win, addr: "0111", number:  1 } }
+  - { platform: gpio, id: M07_IN02, name: M07_IN02, pin: { worm_input: win, addr: "0111", number:  2 } }
+  - { platform: gpio, id: M07_IN03, name: M07_IN03, pin: { worm_input: win, addr: "0111", number:  3 } }
+  - { platform: gpio, id: M07_IN04, name: M07_IN04, pin: { worm_input: win, addr: "0111", number:  4 } }
+  - { platform: gpio, id: M07_IN05, name: M07_IN05, pin: { worm_input: win, addr: "0111", number:  5 } }
+  - { platform: gpio, id: M07_IN06, name: M07_IN06, pin: { worm_input: win, addr: "0111", number:  6 } }
+  - { platform: gpio, id: M07_IN07, name: M07_IN07, pin: { worm_input: win, addr: "0111", number:  7 } }
+  - { platform: gpio, id: M07_IN08, name: M07_IN08, pin: { worm_input: win, addr: "0111", number:  8 } }
+  - { platform: gpio, id: M07_IN09, name: M07_IN09, pin: { worm_input: win, addr: "0111", number:  9 } }
   - { platform: gpio, id: M07_IN10, name: M07_IN10, pin: { worm_input: win, addr: "0111", number: 10 } }
   - { platform: gpio, id: M07_IN11, name: M07_IN11, pin: { worm_input: win, addr: "0111", number: 11 } }
   - { platform: gpio, id: M07_IN12, name: M07_IN12, pin: { worm_input: win, addr: "0111", number: 12 } }
@@ -536,15 +536,15 @@ binary_sensor:
   - { platform: gpio, id: M07_IN31, name: M07_IN31, pin: { worm_input: win, addr: "0111", number: 31 } }
   - { platform: gpio, id: M07_IN32, name: M07_IN32, pin: { worm_input: win, addr: "0111", number: 32 } }
 
-  - { platform: gpio, id: M08_IN01, name: M08_IN01, pin: { worm_input: win, addr: "1000", number: 1 } }
-  - { platform: gpio, id: M08_IN02, name: M08_IN02, pin: { worm_input: win, addr: "1000", number: 2 } }
-  - { platform: gpio, id: M08_IN03, name: M08_IN03, pin: { worm_input: win, addr: "1000", number: 3 } }
-  - { platform: gpio, id: M08_IN04, name: M08_IN04, pin: { worm_input: win, addr: "1000", number: 4 } }
-  - { platform: gpio, id: M08_IN05, name: M08_IN05, pin: { worm_input: win, addr: "1000", number: 5 } }
-  - { platform: gpio, id: M08_IN06, name: M08_IN06, pin: { worm_input: win, addr: "1000", number: 6 } }
-  - { platform: gpio, id: M08_IN07, name: M08_IN07, pin: { worm_input: win, addr: "1000", number: 7 } }
-  - { platform: gpio, id: M08_IN08, name: M08_IN08, pin: { worm_input: win, addr: "1000", number: 8 } }
-  - { platform: gpio, id: M08_IN09, name: M08_IN09, pin: { worm_input: win, addr: "1000", number: 9 } }
+  - { platform: gpio, id: M08_IN01, name: M08_IN01, pin: { worm_input: win, addr: "1000", number:  1 } }
+  - { platform: gpio, id: M08_IN02, name: M08_IN02, pin: { worm_input: win, addr: "1000", number:  2 } }
+  - { platform: gpio, id: M08_IN03, name: M08_IN03, pin: { worm_input: win, addr: "1000", number:  3 } }
+  - { platform: gpio, id: M08_IN04, name: M08_IN04, pin: { worm_input: win, addr: "1000", number:  4 } }
+  - { platform: gpio, id: M08_IN05, name: M08_IN05, pin: { worm_input: win, addr: "1000", number:  5 } }
+  - { platform: gpio, id: M08_IN06, name: M08_IN06, pin: { worm_input: win, addr: "1000", number:  6 } }
+  - { platform: gpio, id: M08_IN07, name: M08_IN07, pin: { worm_input: win, addr: "1000", number:  7 } }
+  - { platform: gpio, id: M08_IN08, name: M08_IN08, pin: { worm_input: win, addr: "1000", number:  8 } }
+  - { platform: gpio, id: M08_IN09, name: M08_IN09, pin: { worm_input: win, addr: "1000", number:  9 } }
   - { platform: gpio, id: M08_IN10, name: M08_IN10, pin: { worm_input: win, addr: "1000", number: 10 } }
   - { platform: gpio, id: M08_IN11, name: M08_IN11, pin: { worm_input: win, addr: "1000", number: 11 } }
   - { platform: gpio, id: M08_IN12, name: M08_IN12, pin: { worm_input: win, addr: "1000", number: 12 } }
@@ -569,48 +569,48 @@ binary_sensor:
   - { platform: gpio, id: M08_IN31, name: M08_IN31, pin: { worm_input: win, addr: "1000", number: 31 } }
   - { platform: gpio, id: M08_IN32, name: M08_IN32, pin: { worm_input: win, addr: "1000", number: 32 } }
 
-  - { platform: gpio, id: M9_IN01, name: M9_IN01, pin: { worm_input: win, addr: "1001", number: 1 } }
-  - { platform: gpio, id: M9_IN02, name: M9_IN02, pin: { worm_input: win, addr: "1001", number: 2 } }
-  - { platform: gpio, id: M9_IN03, name: M9_IN03, pin: { worm_input: win, addr: "1001", number: 3 } }
-  - { platform: gpio, id: M9_IN04, name: M9_IN04, pin: { worm_input: win, addr: "1001", number: 4 } }
-  - { platform: gpio, id: M9_IN05, name: M9_IN05, pin: { worm_input: win, addr: "1001", number: 5 } }
-  - { platform: gpio, id: M9_IN06, name: M9_IN06, pin: { worm_input: win, addr: "1001", number: 6 } }
-  - { platform: gpio, id: M9_IN07, name: M9_IN07, pin: { worm_input: win, addr: "1001", number: 7 } }
-  - { platform: gpio, id: M9_IN08, name: M9_IN08, pin: { worm_input: win, addr: "1001", number: 8 } }
-  - { platform: gpio, id: M9_IN09, name: M9_IN09, pin: { worm_input: win, addr: "1001", number: 9 } }
-  - { platform: gpio, id: M9_IN10, name: M9_IN10, pin: { worm_input: win, addr: "1001", number: 10 } }
-  - { platform: gpio, id: M9_IN11, name: M9_IN11, pin: { worm_input: win, addr: "1001", number: 11 } }
-  - { platform: gpio, id: M9_IN12, name: M9_IN12, pin: { worm_input: win, addr: "1001", number: 12 } }
-  - { platform: gpio, id: M9_IN13, name: M9_IN13, pin: { worm_input: win, addr: "1001", number: 13 } }
-  - { platform: gpio, id: M9_IN14, name: M9_IN14, pin: { worm_input: win, addr: "1001", number: 14 } }
-  - { platform: gpio, id: M9_IN15, name: M9_IN15, pin: { worm_input: win, addr: "1001", number: 15 } }
-  - { platform: gpio, id: M9_IN16, name: M9_IN16, pin: { worm_input: win, addr: "1001", number: 16 } }
-  - { platform: gpio, id: M9_IN17, name: M9_IN17, pin: { worm_input: win, addr: "1001", number: 17 } }
-  - { platform: gpio, id: M9_IN18, name: M9_IN18, pin: { worm_input: win, addr: "1001", number: 18 } }
-  - { platform: gpio, id: M9_IN19, name: M9_IN19, pin: { worm_input: win, addr: "1001", number: 19 } }
-  - { platform: gpio, id: M9_IN20, name: M9_IN20, pin: { worm_input: win, addr: "1001", number: 20 } }
-  - { platform: gpio, id: M9_IN21, name: M9_IN21, pin: { worm_input: win, addr: "1001", number: 21 } }
-  - { platform: gpio, id: M9_IN22, name: M9_IN22, pin: { worm_input: win, addr: "1001", number: 22 } }
-  - { platform: gpio, id: M9_IN23, name: M9_IN23, pin: { worm_input: win, addr: "1001", number: 23 } }
-  - { platform: gpio, id: M9_IN24, name: M9_IN24, pin: { worm_input: win, addr: "1001", number: 24 } }
-  - { platform: gpio, id: M9_IN25, name: M9_IN25, pin: { worm_input: win, addr: "1001", number: 25 } }
-  - { platform: gpio, id: M9_IN26, name: M9_IN26, pin: { worm_input: win, addr: "1001", number: 26 } }
-  - { platform: gpio, id: M9_IN27, name: M9_IN27, pin: { worm_input: win, addr: "1001", number: 27 } }
-  - { platform: gpio, id: M9_IN28, name: M9_IN28, pin: { worm_input: win, addr: "1001", number: 28 } }
-  - { platform: gpio, id: M9_IN29, name: M9_IN29, pin: { worm_input: win, addr: "1001", number: 29 } }
-  - { platform: gpio, id: M9_IN30, name: M9_IN30, pin: { worm_input: win, addr: "1001", number: 30 } }
-  - { platform: gpio, id: M9_IN31, name: M9_IN31, pin: { worm_input: win, addr: "1001", number: 31 } }
-  - { platform: gpio, id: M9_IN32, name: M9_IN32, pin: { worm_input: win, addr: "1001", number: 32 } }
+  - { platform: gpio, id: M09_IN01, name: M09_IN01, pin: { worm_input: win, addr: "1001", number:  1 } }
+  - { platform: gpio, id: M09_IN02, name: M09_IN02, pin: { worm_input: win, addr: "1001", number:  2 } }
+  - { platform: gpio, id: M09_IN03, name: M09_IN03, pin: { worm_input: win, addr: "1001", number:  3 } }
+  - { platform: gpio, id: M09_IN04, name: M09_IN04, pin: { worm_input: win, addr: "1001", number:  4 } }
+  - { platform: gpio, id: M09_IN05, name: M09_IN05, pin: { worm_input: win, addr: "1001", number:  5 } }
+  - { platform: gpio, id: M09_IN06, name: M09_IN06, pin: { worm_input: win, addr: "1001", number:  6 } }
+  - { platform: gpio, id: M09_IN07, name: M09_IN07, pin: { worm_input: win, addr: "1001", number:  7 } }
+  - { platform: gpio, id: M09_IN08, name: M09_IN08, pin: { worm_input: win, addr: "1001", number:  8 } }
+  - { platform: gpio, id: M09_IN09, name: M09_IN09, pin: { worm_input: win, addr: "1001", number:  9 } }
+  - { platform: gpio, id: M09_IN10, name: M09_IN10, pin: { worm_input: win, addr: "1001", number: 10 } }
+  - { platform: gpio, id: M09_IN11, name: M09_IN11, pin: { worm_input: win, addr: "1001", number: 11 } }
+  - { platform: gpio, id: M09_IN12, name: M09_IN12, pin: { worm_input: win, addr: "1001", number: 12 } }
+  - { platform: gpio, id: M09_IN13, name: M09_IN13, pin: { worm_input: win, addr: "1001", number: 13 } }
+  - { platform: gpio, id: M09_IN14, name: M09_IN14, pin: { worm_input: win, addr: "1001", number: 14 } }
+  - { platform: gpio, id: M09_IN15, name: M09_IN15, pin: { worm_input: win, addr: "1001", number: 15 } }
+  - { platform: gpio, id: M09_IN16, name: M09_IN16, pin: { worm_input: win, addr: "1001", number: 16 } }
+  - { platform: gpio, id: M09_IN17, name: M09_IN17, pin: { worm_input: win, addr: "1001", number: 17 } }
+  - { platform: gpio, id: M09_IN18, name: M09_IN18, pin: { worm_input: win, addr: "1001", number: 18 } }
+  - { platform: gpio, id: M09_IN19, name: M09_IN19, pin: { worm_input: win, addr: "1001", number: 19 } }
+  - { platform: gpio, id: M09_IN20, name: M09_IN20, pin: { worm_input: win, addr: "1001", number: 20 } }
+  - { platform: gpio, id: M09_IN21, name: M09_IN21, pin: { worm_input: win, addr: "1001", number: 21 } }
+  - { platform: gpio, id: M09_IN22, name: M09_IN22, pin: { worm_input: win, addr: "1001", number: 22 } }
+  - { platform: gpio, id: M09_IN23, name: M09_IN23, pin: { worm_input: win, addr: "1001", number: 23 } }
+  - { platform: gpio, id: M09_IN24, name: M09_IN24, pin: { worm_input: win, addr: "1001", number: 24 } }
+  - { platform: gpio, id: M09_IN25, name: M09_IN25, pin: { worm_input: win, addr: "1001", number: 25 } }
+  - { platform: gpio, id: M09_IN26, name: M09_IN26, pin: { worm_input: win, addr: "1001", number: 26 } }
+  - { platform: gpio, id: M09_IN27, name: M09_IN27, pin: { worm_input: win, addr: "1001", number: 27 } }
+  - { platform: gpio, id: M09_IN28, name: M09_IN28, pin: { worm_input: win, addr: "1001", number: 28 } }
+  - { platform: gpio, id: M09_IN29, name: M09_IN29, pin: { worm_input: win, addr: "1001", number: 29 } }
+  - { platform: gpio, id: M09_IN30, name: M09_IN30, pin: { worm_input: win, addr: "1001", number: 30 } }
+  - { platform: gpio, id: M09_IN31, name: M09_IN31, pin: { worm_input: win, addr: "1001", number: 31 } }
+  - { platform: gpio, id: M09_IN32, name: M09_IN32, pin: { worm_input: win, addr: "1001", number: 32 } }
 
-  - { platform: gpio, id: M10_IN01, name: M10_IN01, pin: { worm_input: win, addr: "1010", number: 1 } }
-  - { platform: gpio, id: M10_IN02, name: M10_IN02, pin: { worm_input: win, addr: "1010", number: 2 } }
-  - { platform: gpio, id: M10_IN03, name: M10_IN03, pin: { worm_input: win, addr: "1010", number: 3 } }
-  - { platform: gpio, id: M10_IN04, name: M10_IN04, pin: { worm_input: win, addr: "1010", number: 4 } }
-  - { platform: gpio, id: M10_IN05, name: M10_IN05, pin: { worm_input: win, addr: "1010", number: 5 } }
-  - { platform: gpio, id: M10_IN06, name: M10_IN06, pin: { worm_input: win, addr: "1010", number: 6 } }
-  - { platform: gpio, id: M10_IN07, name: M10_IN07, pin: { worm_input: win, addr: "1010", number: 7 } }
-  - { platform: gpio, id: M10_IN08, name: M10_IN08, pin: { worm_input: win, addr: "1010", number: 8 } }
-  - { platform: gpio, id: M10_IN09, name: M10_IN09, pin: { worm_input: win, addr: "1010", number: 9 } }
+  - { platform: gpio, id: M10_IN01, name: M10_IN01, pin: { worm_input: win, addr: "1010", number:  1 } }
+  - { platform: gpio, id: M10_IN02, name: M10_IN02, pin: { worm_input: win, addr: "1010", number:  2 } }
+  - { platform: gpio, id: M10_IN03, name: M10_IN03, pin: { worm_input: win, addr: "1010", number:  3 } }
+  - { platform: gpio, id: M10_IN04, name: M10_IN04, pin: { worm_input: win, addr: "1010", number:  4 } }
+  - { platform: gpio, id: M10_IN05, name: M10_IN05, pin: { worm_input: win, addr: "1010", number:  5 } }
+  - { platform: gpio, id: M10_IN06, name: M10_IN06, pin: { worm_input: win, addr: "1010", number:  6 } }
+  - { platform: gpio, id: M10_IN07, name: M10_IN07, pin: { worm_input: win, addr: "1010", number:  7 } }
+  - { platform: gpio, id: M10_IN08, name: M10_IN08, pin: { worm_input: win, addr: "1010", number:  8 } }
+  - { platform: gpio, id: M10_IN09, name: M10_IN09, pin: { worm_input: win, addr: "1010", number:  9 } }
   - { platform: gpio, id: M10_IN10, name: M10_IN10, pin: { worm_input: win, addr: "1010", number: 10 } }
   - { platform: gpio, id: M10_IN11, name: M10_IN11, pin: { worm_input: win, addr: "1010", number: 11 } }
   - { platform: gpio, id: M10_IN12, name: M10_IN12, pin: { worm_input: win, addr: "1010", number: 12 } }
@@ -635,15 +635,15 @@ binary_sensor:
   - { platform: gpio, id: M10_IN31, name: M10_IN31, pin: { worm_input: win, addr: "1010", number: 31 } }
   - { platform: gpio, id: M10_IN32, name: M10_IN32, pin: { worm_input: win, addr: "1010", number: 32 } }
 
-  - { platform: gpio, id: M11_IN01, name: M11_IN01, pin: { worm_input: win, addr: "1011", number: 1 } }
-  - { platform: gpio, id: M11_IN02, name: M11_IN02, pin: { worm_input: win, addr: "1011", number: 2 } }
-  - { platform: gpio, id: M11_IN03, name: M11_IN03, pin: { worm_input: win, addr: "1011", number: 3 } }
-  - { platform: gpio, id: M11_IN04, name: M11_IN04, pin: { worm_input: win, addr: "1011", number: 4 } }
-  - { platform: gpio, id: M11_IN05, name: M11_IN05, pin: { worm_input: win, addr: "1011", number: 5 } }
-  - { platform: gpio, id: M11_IN06, name: M11_IN06, pin: { worm_input: win, addr: "1011", number: 6 } }
-  - { platform: gpio, id: M11_IN07, name: M11_IN07, pin: { worm_input: win, addr: "1011", number: 7 } }
-  - { platform: gpio, id: M11_IN08, name: M11_IN08, pin: { worm_input: win, addr: "1011", number: 8 } }
-  - { platform: gpio, id: M11_IN09, name: M11_IN09, pin: { worm_input: win, addr: "1011", number: 9 } }
+  - { platform: gpio, id: M11_IN01, name: M11_IN01, pin: { worm_input: win, addr: "1011", number:  1 } }
+  - { platform: gpio, id: M11_IN02, name: M11_IN02, pin: { worm_input: win, addr: "1011", number:  2 } }
+  - { platform: gpio, id: M11_IN03, name: M11_IN03, pin: { worm_input: win, addr: "1011", number:  3 } }
+  - { platform: gpio, id: M11_IN04, name: M11_IN04, pin: { worm_input: win, addr: "1011", number:  4 } }
+  - { platform: gpio, id: M11_IN05, name: M11_IN05, pin: { worm_input: win, addr: "1011", number:  5 } }
+  - { platform: gpio, id: M11_IN06, name: M11_IN06, pin: { worm_input: win, addr: "1011", number:  6 } }
+  - { platform: gpio, id: M11_IN07, name: M11_IN07, pin: { worm_input: win, addr: "1011", number:  7 } }
+  - { platform: gpio, id: M11_IN08, name: M11_IN08, pin: { worm_input: win, addr: "1011", number:  8 } }
+  - { platform: gpio, id: M11_IN09, name: M11_IN09, pin: { worm_input: win, addr: "1011", number:  9 } }
   - { platform: gpio, id: M11_IN10, name: M11_IN10, pin: { worm_input: win, addr: "1011", number: 10 } }
   - { platform: gpio, id: M11_IN11, name: M11_IN11, pin: { worm_input: win, addr: "1011", number: 11 } }
   - { platform: gpio, id: M11_IN12, name: M11_IN12, pin: { worm_input: win, addr: "1011", number: 12 } }
@@ -668,15 +668,15 @@ binary_sensor:
   - { platform: gpio, id: M11_IN31, name: M11_IN31, pin: { worm_input: win, addr: "1011", number: 31 } }
   - { platform: gpio, id: M11_IN32, name: M11_IN32, pin: { worm_input: win, addr: "1011", number: 32 } }
 
-  - { platform: gpio, id: M12_IN01, name: M12_IN01, pin: { worm_input: win, addr: "1100", number: 1 } }
-  - { platform: gpio, id: M12_IN02, name: M12_IN02, pin: { worm_input: win, addr: "1100", number: 2 } }
-  - { platform: gpio, id: M12_IN03, name: M12_IN03, pin: { worm_input: win, addr: "1100", number: 3 } }
-  - { platform: gpio, id: M12_IN04, name: M12_IN04, pin: { worm_input: win, addr: "1100", number: 4 } }
-  - { platform: gpio, id: M12_IN05, name: M12_IN05, pin: { worm_input: win, addr: "1100", number: 5 } }
-  - { platform: gpio, id: M12_IN06, name: M12_IN06, pin: { worm_input: win, addr: "1100", number: 6 } }
-  - { platform: gpio, id: M12_IN07, name: M12_IN07, pin: { worm_input: win, addr: "1100", number: 7 } }
-  - { platform: gpio, id: M12_IN08, name: M12_IN08, pin: { worm_input: win, addr: "1100", number: 8 } }
-  - { platform: gpio, id: M12_IN09, name: M12_IN09, pin: { worm_input: win, addr: "1100", number: 9 } }
+  - { platform: gpio, id: M12_IN01, name: M12_IN01, pin: { worm_input: win, addr: "1100", number:  1 } }
+  - { platform: gpio, id: M12_IN02, name: M12_IN02, pin: { worm_input: win, addr: "1100", number:  2 } }
+  - { platform: gpio, id: M12_IN03, name: M12_IN03, pin: { worm_input: win, addr: "1100", number:  3 } }
+  - { platform: gpio, id: M12_IN04, name: M12_IN04, pin: { worm_input: win, addr: "1100", number:  4 } }
+  - { platform: gpio, id: M12_IN05, name: M12_IN05, pin: { worm_input: win, addr: "1100", number:  5 } }
+  - { platform: gpio, id: M12_IN06, name: M12_IN06, pin: { worm_input: win, addr: "1100", number:  6 } }
+  - { platform: gpio, id: M12_IN07, name: M12_IN07, pin: { worm_input: win, addr: "1100", number:  7 } }
+  - { platform: gpio, id: M12_IN08, name: M12_IN08, pin: { worm_input: win, addr: "1100", number:  8 } }
+  - { platform: gpio, id: M12_IN09, name: M12_IN09, pin: { worm_input: win, addr: "1100", number:  9 } }
   - { platform: gpio, id: M12_IN10, name: M12_IN10, pin: { worm_input: win, addr: "1100", number: 10 } }
   - { platform: gpio, id: M12_IN11, name: M12_IN11, pin: { worm_input: win, addr: "1100", number: 11 } }
   - { platform: gpio, id: M12_IN12, name: M12_IN12, pin: { worm_input: win, addr: "1100", number: 12 } }
@@ -701,15 +701,15 @@ binary_sensor:
   - { platform: gpio, id: M12_IN31, name: M12_IN31, pin: { worm_input: win, addr: "1100", number: 31 } }
   - { platform: gpio, id: M12_IN32, name: M12_IN32, pin: { worm_input: win, addr: "1100", number: 32 } }
 
-  - { platform: gpio, id: M13_IN01, name: M13_IN01, pin: { worm_input: win, addr: "1101", number: 1 } }
-  - { platform: gpio, id: M13_IN02, name: M13_IN02, pin: { worm_input: win, addr: "1101", number: 2 } }
-  - { platform: gpio, id: M13_IN03, name: M13_IN03, pin: { worm_input: win, addr: "1101", number: 3 } }
-  - { platform: gpio, id: M13_IN04, name: M13_IN04, pin: { worm_input: win, addr: "1101", number: 4 } }
-  - { platform: gpio, id: M13_IN05, name: M13_IN05, pin: { worm_input: win, addr: "1101", number: 5 } }
-  - { platform: gpio, id: M13_IN06, name: M13_IN06, pin: { worm_input: win, addr: "1101", number: 6 } }
-  - { platform: gpio, id: M13_IN07, name: M13_IN07, pin: { worm_input: win, addr: "1101", number: 7 } }
-  - { platform: gpio, id: M13_IN08, name: M13_IN08, pin: { worm_input: win, addr: "1101", number: 8 } }
-  - { platform: gpio, id: M13_IN09, name: M13_IN09, pin: { worm_input: win, addr: "1101", number: 9 } }
+  - { platform: gpio, id: M13_IN01, name: M13_IN01, pin: { worm_input: win, addr: "1101", number:  1 } }
+  - { platform: gpio, id: M13_IN02, name: M13_IN02, pin: { worm_input: win, addr: "1101", number:  2 } }
+  - { platform: gpio, id: M13_IN03, name: M13_IN03, pin: { worm_input: win, addr: "1101", number:  3 } }
+  - { platform: gpio, id: M13_IN04, name: M13_IN04, pin: { worm_input: win, addr: "1101", number:  4 } }
+  - { platform: gpio, id: M13_IN05, name: M13_IN05, pin: { worm_input: win, addr: "1101", number:  5 } }
+  - { platform: gpio, id: M13_IN06, name: M13_IN06, pin: { worm_input: win, addr: "1101", number:  6 } }
+  - { platform: gpio, id: M13_IN07, name: M13_IN07, pin: { worm_input: win, addr: "1101", number:  7 } }
+  - { platform: gpio, id: M13_IN08, name: M13_IN08, pin: { worm_input: win, addr: "1101", number:  8 } }
+  - { platform: gpio, id: M13_IN09, name: M13_IN09, pin: { worm_input: win, addr: "1101", number:  9 } }
   - { platform: gpio, id: M13_IN10, name: M13_IN10, pin: { worm_input: win, addr: "1101", number: 10 } }
   - { platform: gpio, id: M13_IN11, name: M13_IN11, pin: { worm_input: win, addr: "1101", number: 11 } }
   - { platform: gpio, id: M13_IN12, name: M13_IN12, pin: { worm_input: win, addr: "1101", number: 12 } }
@@ -734,15 +734,15 @@ binary_sensor:
   - { platform: gpio, id: M13_IN31, name: M13_IN31, pin: { worm_input: win, addr: "1101", number: 31 } }
   - { platform: gpio, id: M13_IN32, name: M13_IN32, pin: { worm_input: win, addr: "1101", number: 32 } }
 
-  - { platform: gpio, id: M14_IN01, name: M14_IN01, pin: { worm_input: win, addr: "1110", number: 1 } }
-  - { platform: gpio, id: M14_IN02, name: M14_IN02, pin: { worm_input: win, addr: "1110", number: 2 } }
-  - { platform: gpio, id: M14_IN03, name: M14_IN03, pin: { worm_input: win, addr: "1110", number: 3 } }
-  - { platform: gpio, id: M14_IN04, name: M14_IN04, pin: { worm_input: win, addr: "1110", number: 4 } }
-  - { platform: gpio, id: M14_IN05, name: M14_IN05, pin: { worm_input: win, addr: "1110", number: 5 } }
-  - { platform: gpio, id: M14_IN06, name: M14_IN06, pin: { worm_input: win, addr: "1110", number: 6 } }
-  - { platform: gpio, id: M14_IN07, name: M14_IN07, pin: { worm_input: win, addr: "1110", number: 7 } }
-  - { platform: gpio, id: M14_IN08, name: M14_IN08, pin: { worm_input: win, addr: "1110", number: 8 } }
-  - { platform: gpio, id: M14_IN09, name: M14_IN09, pin: { worm_input: win, addr: "1110", number: 9 } }
+  - { platform: gpio, id: M14_IN01, name: M14_IN01, pin: { worm_input: win, addr: "1110", number:  1 } }
+  - { platform: gpio, id: M14_IN02, name: M14_IN02, pin: { worm_input: win, addr: "1110", number:  2 } }
+  - { platform: gpio, id: M14_IN03, name: M14_IN03, pin: { worm_input: win, addr: "1110", number:  3 } }
+  - { platform: gpio, id: M14_IN04, name: M14_IN04, pin: { worm_input: win, addr: "1110", number:  4 } }
+  - { platform: gpio, id: M14_IN05, name: M14_IN05, pin: { worm_input: win, addr: "1110", number:  5 } }
+  - { platform: gpio, id: M14_IN06, name: M14_IN06, pin: { worm_input: win, addr: "1110", number:  6 } }
+  - { platform: gpio, id: M14_IN07, name: M14_IN07, pin: { worm_input: win, addr: "1110", number:  7 } }
+  - { platform: gpio, id: M14_IN08, name: M14_IN08, pin: { worm_input: win, addr: "1110", number:  8 } }
+  - { platform: gpio, id: M14_IN09, name: M14_IN09, pin: { worm_input: win, addr: "1110", number:  9 } }
   - { platform: gpio, id: M14_IN10, name: M14_IN10, pin: { worm_input: win, addr: "1110", number: 10 } }
   - { platform: gpio, id: M14_IN11, name: M14_IN11, pin: { worm_input: win, addr: "1110", number: 11 } }
   - { platform: gpio, id: M14_IN12, name: M14_IN12, pin: { worm_input: win, addr: "1110", number: 12 } }
@@ -767,15 +767,15 @@ binary_sensor:
   - { platform: gpio, id: M14_IN31, name: M14_IN31, pin: { worm_input: win, addr: "1110", number: 31 } }
   - { platform: gpio, id: M14_IN32, name: M14_IN32, pin: { worm_input: win, addr: "1110", number: 32 } }
 
-  - { platform: gpio, id: M15_IN01, name: M15_IN01, pin: { worm_input: win, addr: "1111", number: 1 } }
-  - { platform: gpio, id: M15_IN02, name: M15_IN02, pin: { worm_input: win, addr: "1111", number: 2 } }
-  - { platform: gpio, id: M15_IN03, name: M15_IN03, pin: { worm_input: win, addr: "1111", number: 3 } }
-  - { platform: gpio, id: M15_IN04, name: M15_IN04, pin: { worm_input: win, addr: "1111", number: 4 } }
-  - { platform: gpio, id: M15_IN05, name: M15_IN05, pin: { worm_input: win, addr: "1111", number: 5 } }
-  - { platform: gpio, id: M15_IN06, name: M15_IN06, pin: { worm_input: win, addr: "1111", number: 6 } }
-  - { platform: gpio, id: M15_IN07, name: M15_IN07, pin: { worm_input: win, addr: "1111", number: 7 } }
-  - { platform: gpio, id: M15_IN08, name: M15_IN08, pin: { worm_input: win, addr: "1111", number: 8 } }
-  - { platform: gpio, id: M15_IN09, name: M15_IN09, pin: { worm_input: win, addr: "1111", number: 9 } }
+  - { platform: gpio, id: M15_IN01, name: M15_IN01, pin: { worm_input: win, addr: "1111", number:  1 } }
+  - { platform: gpio, id: M15_IN02, name: M15_IN02, pin: { worm_input: win, addr: "1111", number:  2 } }
+  - { platform: gpio, id: M15_IN03, name: M15_IN03, pin: { worm_input: win, addr: "1111", number:  3 } }
+  - { platform: gpio, id: M15_IN04, name: M15_IN04, pin: { worm_input: win, addr: "1111", number:  4 } }
+  - { platform: gpio, id: M15_IN05, name: M15_IN05, pin: { worm_input: win, addr: "1111", number:  5 } }
+  - { platform: gpio, id: M15_IN06, name: M15_IN06, pin: { worm_input: win, addr: "1111", number:  6 } }
+  - { platform: gpio, id: M15_IN07, name: M15_IN07, pin: { worm_input: win, addr: "1111", number:  7 } }
+  - { platform: gpio, id: M15_IN08, name: M15_IN08, pin: { worm_input: win, addr: "1111", number:  8 } }
+  - { platform: gpio, id: M15_IN09, name: M15_IN09, pin: { worm_input: win, addr: "1111", number:  9 } }
   - { platform: gpio, id: M15_IN10, name: M15_IN10, pin: { worm_input: win, addr: "1111", number: 10 } }
   - { platform: gpio, id: M15_IN11, name: M15_IN11, pin: { worm_input: win, addr: "1111", number: 11 } }
   - { platform: gpio, id: M15_IN12, name: M15_IN12, pin: { worm_input: win, addr: "1111", number: 12 } }

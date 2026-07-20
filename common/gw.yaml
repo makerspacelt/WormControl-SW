@@ -18,6 +18,21 @@ esp32:
   framework:
     type: esp-idf
 
+preferences:
+  # Aiming for 20 years flash lifetime in the most conservative calculation:
+  # - 4K bytes per sector, 126 NVS entries per sector (https://docs.espressif.com/projects/esp-faq/en/latest/software-framework/storage/nvs.html)
+  # - 112 NVS sectors (448K "eeprom" partition since ESPHome 2026.4.0 with ESP-IDF)
+  # - One switch state in flash is 1 NVS entry at 32 bytes
+  # - With 225 switch states (all 15 worm_relay modules saving state to flash) we write to max 2 sectors/2 min or 1
+  #   sector/1 min (depending on active relays within the period).
+  # - So with 112 NVS sectors and 1 sector erase per minute (due to distributed writes), we get (24*60)/112=12.86 erase cycles per 24 hours.
+  # - With the normal flash rated for 100k erase cycles per sector, we get 100000/12.86=7776 days=21 years flash lifetime.
+  #
+  # Possible optimization: instead of using ESPHome switch's restore_mode, we could use lambdas or extend the worm_relay
+  # custom component to actually use 1 bit per switch instead of 32 bytes. Then we would not even need to think about
+  # flash lifetime.
+  flash_write_interval: 2min
+
 external_components:
   - source:
       type: local
@@ -35,7 +50,7 @@ logger:
 
 ota:
   platform: esphome
- 
+
 ethernet:
   type: w5500
   clk_pin: GPIO04
@@ -52,7 +67,7 @@ canbus:
     rx_pin: GPIO0
     can_id: 0
     bit_rate: 125kbps
- 
+
 # Single worm_relay component manages all relay modules
 # Each module has USR LED + 15 relays (gpio pin numbers 0-15)
 worm_relay:
