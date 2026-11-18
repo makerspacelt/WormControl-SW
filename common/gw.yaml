@@ -1,3 +1,10 @@
+# worm-gw
+# Extra HW (not configured):
+# - USR LED: GPIO09
+# - RS485: GPIO1 TX, GPIO10 RX
+# - I2C: 0x60 eeprom 24C025
+# - I2C: 0x40 current sensor INA226substitutions:
+
 substitutions:
   device_name: "worm-control"
   friendly_name: "Worm Control"
@@ -53,20 +60,26 @@ ota:
 
 ethernet:
   type: w5500
-  clk_pin: GPIO04
-  mosi_pin: GPIO06
+  mosi_pin: GPIO04
   miso_pin: GPIO05
-  cs_pin: GPIO03
-  interrupt_pin: GPIO20
+  clk_pin: GPIO06
+  cs_pin: GPIO07
+  interrupt_pin: GPIO03
 
 # CANbus configuration
 canbus:
   - platform: esp32_can
     id: espcan
-    tx_pin: GPIO1
-    rx_pin: GPIO0
+    tx_pin: GPIO21
+    rx_pin: GPIO20
     can_id: 0
-    bit_rate: 125kbps
+    bit_rate: 25kbps
+
+i2c:
+  sda: GPIO2
+  scl: GPIO8
+  frequency: 100kHz
+  scan: true
 
 # Single worm_relay component manages all relay modules
 # Each module has USR LED + 15 relays (gpio pin numbers 0-15)
@@ -92,6 +105,28 @@ sensor:
   - platform: uptime
     name: Uptime
     update_interval: 30s
+
+  - platform: tmp102 # top PCB
+    id: temp_1
+    address: 0x48
+    update_interval: 4000ms
+    force_update: True
+
+  - platform: tmp102 # bottom PCB
+    id: temp_3
+    address: 0x4A
+    update_interval: 4200ms
+    force_update: True
+
+  - platform: adc
+    pin: GPIO00
+    id: adc_voltage
+    update_interval: 4300ms
+    force_update: True
+    filters:
+      - calibrate_linear:
+        - 0.750 -> 24.686
+        - 0.000 -> 0
 
 text_sensor:
   - platform: debug
